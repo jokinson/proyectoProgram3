@@ -1,5 +1,7 @@
 package objetos;
 
+//@author Jokinson
+
 public class Articulo {
 	
 	private int codigoArticulo;
