@@ -61,12 +61,19 @@ public class Login extends JFrame {
 		btnIniciarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				
 			}
 		});
 		btnIniciarSesin.setBounds(87, 214, 163, 29);
 		contentPane.add(btnIniciarSesin);
 		
 		JButton btnNewButton = new JButton("Registrarse");
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				
+				
+			}
+		});
 		btnNewButton.setBounds(290, 214, 163, 29);
 		contentPane.add(btnNewButton);
 		
