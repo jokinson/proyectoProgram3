@@ -1,6 +1,5 @@
 package objetos;
 
-//@author Jokinson
 
 public class Articulo {
 	
