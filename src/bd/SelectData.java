@@ -40,7 +40,7 @@ public class SelectData
      */
     public void selectAll()
     {
-        String sql = "SELECT id, name, capacity FROM warehouses";
+        String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion FROM Articulo";
 
         try
                 (
@@ -55,9 +55,13 @@ public class SelectData
             {
                 System.out.println
                         (
-                                rs.getInt("id") +  "\t" +
-                                rs.getString("name") + "\t" +
-                                rs.getDouble("capacity")
+                                rs.getInt("codigoArticulo") +  "\t" +
+                                rs.getInt("codigoTipo") + "\t" +
+                                rs.getString("nombreArticulo") + "\t" +
+                                rs.getDouble("precioArticulo") + "\t" +
+                                rs.getString("descripcion") + "\t" +
+                                rs.getString("categoria") + "\t" +
+                                rs.getInt("duracion")
                         );
             }
         } catch (SQLException e)
