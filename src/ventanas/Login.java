@@ -6,11 +6,18 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import bd.SelectData;
+import registro.Usuario;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -61,6 +68,22 @@ public class Login extends JFrame {
 		btnIniciarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
+				String textoUsuario = textField.getText();
+				String passwordTexto= passwordField.getText();
+				
+				ArrayList<Usuario> u = SelectData.selectUsuario();
+				for(Usuario a : u){
+					if(textoUsuario.equals(a.getNombreUsuario())&& passwordTexto.equals(a.getContrasena())){
+						
+						Principal principal = new Principal(a);
+						principal.setVisible(true);
+						dispose();
+					}else{
+						Login login = new Login();
+						JOptionPane.showMessageDialog(login, "El usuario o la contraseña son incorrectos");
+					}
+					
+				}
 				
 			}
 		});
@@ -70,7 +93,9 @@ public class Login extends JFrame {
 		JButton btnNewButton = new JButton("Registrarse");
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				
+				Registro registro = new Registro();
+				registro.setVisible(true);
+				dispose();
 				
 			}
 		});

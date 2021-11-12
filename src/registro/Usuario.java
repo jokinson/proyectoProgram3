@@ -75,6 +75,12 @@ public class Usuario {
 		return "Usuario =" + nombreUsuario + ", Contraseña =" + contrasena+"Saldo ="+saldo;
 	}
 	
+	public static int restaPrecio(int a, int b){
+		int r=a-b;
+		return r;
+		
+	}
+	
 	
 	
 	
