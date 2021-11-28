@@ -9,6 +9,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import objetos.Articulo;
+import objetos.Documental;
+import objetos.Pelicula;
+import objetos.Serie;
 import registro.Usuario;
 
 /**
@@ -43,9 +46,9 @@ public class SelectData
     /**
      * select all rows in the warehouses table
      */
-    public void selectAll()
+    public static ArrayList<Articulo> selectArticulo()
     {
-    	
+    	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
         String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion FROM Articulo";
 
         try
@@ -59,24 +62,22 @@ public class SelectData
             // loop through the result set
             while (rs.next())
             {
-                System.out.println
-                        (
-                                rs.getInt("codigoArticulo") +  "\t" +
-                                rs.getInt("codigoTipo") + "\t" +
-                                rs.getString("nombreArticulo") + "\t" +
-                                rs.getDouble("precioArticulo") + "\t" +
-                                rs.getString("descripcion") + "\t" +
-                                rs.getString("categoria") + "\t" +
-                                rs.getInt("duracion")
-                        );
-                
-                
+            	
+            	
+            	
+            	if(rs.getInt("codigoTipo") == 1){
+            		articulos.add(new Pelicula(rs.getInt("codigoArticulo"),rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion")));
+            	} else if (rs.getInt("codigoTipo") == 2){
+            		articulos.add(new Serie(rs.getInt("codigoArticulo"), rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion"), rs.getInt("temporadas"), rs.getInt("episodios")));
+            	} else articulos.add(new Documental(rs.getInt("codigoArticulo"),rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion")));
+
             }
             
         } catch (SQLException e)
         {
             System.out.println(e.getMessage());
         }
+		return articulos;
     }
     
     public static ArrayList<Usuario> selectUsuario()
@@ -108,7 +109,7 @@ public class SelectData
 		return usuarios;
     }
     
-    public static void insert(String nombreCompleto, int edad, String nombreUsuario, String contrasena)
+    public static void insertUsuario(String nombreCompleto, int edad, String nombreUsuario, String contrasena)
     {
         String sql = "INSERT INTO Usuario(nombreCompleto,edad,nombreUsuario,contrasena) VALUES(?,?,?,?)";
 
@@ -129,6 +130,266 @@ public class SelectData
             System.out.println(e.getMessage());
         }
     }
+    
+    public static void insertArticulo(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
+    {
+    	
+        String sql = "INSERT INTO Articulo( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+        	
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+            
+            pstmt.executeUpdate();
+            
+            if (codigoTipo == 1){
+            	
+            	
+            	SelectData.insertPelicula(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion);
+            	
+            }
+            if (codigoTipo == 2){
+            	
+            	int temporadas = 0;
+            	int episodios = 0;
+            	
+            	SelectData.insertSerie(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion, temporadas, episodios);
+            }
+            
+            if (codigoTipo == 3){
+            	
+            	SelectData.insertDocumental(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion);
+            }
+      
+            
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void insertPelicula(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
+    {
+        String sql = "INSERT INTO Pelicula( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void insertSerie(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion, int temporadas, int episodios)
+    {
+    	
+    	
+        String sql = "INSERT INTO Serie( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion, temporadas, episodios) VALUES(?,?,?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+            pstmt.setInt(7, temporadas);
+            pstmt.setInt(8, episodios);
+      
+            pstmt.executeUpdate();
+            
+            
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public static void insertDocumental(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
+    {
+        String sql = "INSERT INTO Documental( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+        
+    }
+    
+    public static ArrayList<Serie> selectSerie()
+    {
+    	ArrayList<Serie> series = new ArrayList<Serie>();
+        String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion, temporadas, episodios FROM Serie";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	
+            	Serie s = new Serie(rs.getInt("codigoArticulo"), rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion"), rs.getInt("temporadas"), rs.getInt("episodios"));
+            	
+            	series.add(s);
+            }
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return series;
+    }
+    public static ArrayList<Pelicula> selectPelicula()
+    {
+    	ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+        String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion FROM Pelicula";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	
+            	Pelicula p = new Pelicula(rs.getInt("codigoArticulo"), rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion"));
+            	
+            	peliculas.add(p);
+            }
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return peliculas;
+    }
+    public static ArrayList<Documental> selectDocumental()
+    {
+    	ArrayList<Documental> documentales = new ArrayList<Documental>();
+        String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion FROM Documental";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	
+            	Documental d = new Documental(rs.getInt("codigoArticulo"), rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion"));
+            	
+            	documentales.add(d);
+            }
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return documentales;
+    }
+    
+    public static ArrayList<Articulo> selectArticulos(){
+    	
+    	
+    	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
+    	ArrayList<Pelicula> peliculas = SelectData.selectPelicula();
+    	ArrayList<Serie> series = SelectData.selectSerie();
+    	ArrayList<Documental> documentales = SelectData.selectDocumental();
+    	
+    	
+    	for(Pelicula p : peliculas){
+    		articulos.add(p);
+    	}
+    	for (Serie s : series){
+    		articulos.add(s);
+    	}
+    	for (Documental d : documentales){
+    		articulos.add(d);
+    	}
+    	
+		return articulos;
+    	
+    }
+    
+    
+    
+    
+    
 
 
     /**
@@ -140,4 +401,4 @@ public class SelectData
     	System.out.println(u);
         
     }
-}
+} 

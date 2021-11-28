@@ -1,6 +1,5 @@
 package ventanas;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -72,17 +71,18 @@ public class Login extends JFrame {
 				String passwordTexto= passwordField.getText();
 				
 				ArrayList<Usuario> u = SelectData.selectUsuario();
+				boolean esFalso=true;
 				for(Usuario a : u){
 					if(textoUsuario.equals(a.getNombreUsuario())&& passwordTexto.equals(a.getContrasena())){
-						
+						esFalso=false;
 						Principal principal = new Principal(a);
 						principal.setVisible(true);
 						dispose();
-					}else{
-						Login login = new Login();
-						JOptionPane.showMessageDialog(login, "El usuario o la contraseña son incorrectos");
 					}
 					
+					
+				}if (esFalso==true){
+					JOptionPane.showMessageDialog(Login.this, "El usuario o la contraseña son incorrectos");
 				}
 				
 			}

@@ -21,7 +21,7 @@ public class Articulo {
 	/**
 	 * El precio del articulo
 	 */
-	private float precioArticulo;
+	private double precioArticulo;
 	/**
 	 * Breve explicacion del argumento del articulo
 	 */
@@ -44,7 +44,7 @@ public class Articulo {
 	 * @param categoria 	A que genero pertenece
 	 * @param duracion		Cuanto dura el articulo
 	 */
-	public Articulo(int codigoArticulo, int codigoTipo, String nombreArticulo, float precioArticulo, String descripcion,
+	public Articulo(int codigoArticulo, int codigoTipo, String nombreArticulo,  double precioArticulo, String descripcion,
 			String categoria, int duracion) {
 		super();
 		this.codigoArticulo = codigoArticulo;
@@ -101,14 +101,14 @@ public class Articulo {
 	 * Devuelve el precio del articulo
 	 * @return precioArticulo
 	 */
-	public float getPrecioArticulo() {
+	public double getPrecioArticulo() {
 		return precioArticulo;
 	}
 	/**
 	 * Modifica el precio del articulo
 	 * @param precioArticulo
 	 */
-	public void setPrecioArticulo(float precioArticulo) {
+	public void setPrecioArticulo(double precioArticulo) {
 		this.precioArticulo = precioArticulo;
 	}
 	/**
@@ -147,7 +147,7 @@ public class Articulo {
 		return duracion;
 	}
 	/**
-	 * Modifica la duracion del articulo
+	 * Modifica la duracion del articulo 
 	 * @param duracion
 	 */
 	public void setDuracion(int duracion) {
@@ -156,9 +156,17 @@ public class Articulo {
 
 	@Override
 	public String toString() {
-		return "Articulo [codigoArticulo=" + codigoArticulo + ", codigoTipo=" + codigoTipo + ", nombreArticulo="
-				+ nombreArticulo + ", precioArticulo=" + precioArticulo + ", descripcion=" + descripcion
-				+ ", categoria=" + categoria + ", duracion=" + duracion + "]";
+		String a = "";
+		if(codigoTipo == 1){
+			a = "Pelicula";
+		}
+		if(codigoTipo == 2){
+			a = "Serie";
+		}
+		if(codigoTipo == 3){
+			a = "Documental";
+		}
+		return a+", "+nombreArticulo+", "+ precioArticulo+", "+categoria+", "+ duracion;
 	}
 	
 	

@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JPasswordField;
 
 public class Registro extends JFrame {
 
@@ -23,7 +24,7 @@ public class Registro extends JFrame {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
-	private JTextField textField_3;
+	private JPasswordField passwordField;
 
 
 	/**
@@ -52,10 +53,9 @@ public class Registro extends JFrame {
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(71, 296, 299, 31);
-		contentPane.add(textField_3);
-		textField_3.setColumns(10);
+		passwordField = new JPasswordField();
+		passwordField.setBounds(71, 285, 299, 31);
+		contentPane.add(passwordField);
 		
 		JButton btnRegistrar = new JButton("Registrar");
 		btnRegistrar.addActionListener(new ActionListener() {
@@ -66,9 +66,9 @@ public class Registro extends JFrame {
 				String ed = textField_1.getText();
 				int eda = Integer.parseInt(ed);
 				String nombreUsu = textField_2.getText();
-				String contra = textField_3.getText();
+				String contra = passwordField.getText();
 				
-				SelectData.insert(nombreC, eda, nombreUsu, contra);
+				SelectData.insertUsuario(nombreC, eda, nombreUsu, contra);
 				
 				Login login = new Login();
 				login.setVisible(true);
@@ -96,5 +96,7 @@ public class Registro extends JFrame {
 		JLabel lblContrasena = new JLabel("contrasena");
 		lblContrasena.setBounds(71, 263, 123, 20);
 		contentPane.add(lblContrasena);
+		
+		
 	}
 }
