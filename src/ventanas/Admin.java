@@ -173,6 +173,7 @@ public class Admin extends JFrame {
 		textField_7.setVisible(false);
 		
 		JButton btnNewButton_1 = new JButton("Eliminar Usuario");
+		btnNewButton_1.setVisible(false);
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.addActionListener(new ActionListener() {
@@ -245,7 +246,7 @@ public class Admin extends JFrame {
 					lblEpisodios.setVisible(false);
 					lblTemporadas.setVisible(false);
 					btnNewButton.setVisible(false);
-					btnNewButton_1.setVisible(false);
+					btnNewButton_1.setVisible(true);
 					
 					
 					DefaultListModel<Usuario> usuarios = new DefaultListModel<Usuario>();
@@ -273,7 +274,7 @@ public class Admin extends JFrame {
 					lblEpisodios.setVisible(true);
 					lblTemporadas.setVisible(true);
 					btnNewButton.setVisible(true);
-					btnNewButton_1.setVisible(true);
+					btnNewButton_1.setVisible(false);
 					
 					DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 					ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
