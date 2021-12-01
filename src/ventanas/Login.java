@@ -72,12 +72,20 @@ public class Login extends JFrame {
 				
 				ArrayList<Usuario> u = SelectData.selectUsuario();
 				boolean esFalso=true;
+				
 				for(Usuario a : u){
 					if(textoUsuario.equals(a.getNombreUsuario())&& passwordTexto.equals(a.getContrasena())){
 						esFalso=false;
-						Principal principal = new Principal(a);
-						principal.setVisible(true);
-						dispose();
+						if(a.getEsAdmin() == 1){
+							Admin admin = new Admin();
+							admin.setVisible(true);
+							dispose();
+						}else{
+							Principal principal = new Principal(a);
+							principal.setVisible(true);
+							dispose();
+						}
+						
 					}
 					
 					

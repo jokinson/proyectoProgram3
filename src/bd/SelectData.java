@@ -43,47 +43,12 @@ public class SelectData
     }
 
 
-    /**
-     * select all rows in the warehouses table
-     */
-    public static ArrayList<Articulo> selectArticulo()
-    {
-    	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
-        String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion FROM Articulo";
-
-        try
-                (
-                        Connection conn = connect();
-                        Statement stmt  = conn.createStatement();
-                        ResultSet rs    = stmt.executeQuery(sql)
-                )
-        {
-
-            // loop through the result set
-            while (rs.next())
-            {
-            	
-            	
-            	
-            	if(rs.getInt("codigoTipo") == 1){
-            		articulos.add(new Pelicula(rs.getInt("codigoArticulo"),rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion")));
-            	} else if (rs.getInt("codigoTipo") == 2){
-            		articulos.add(new Serie(rs.getInt("codigoArticulo"), rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion"), rs.getInt("temporadas"), rs.getInt("episodios")));
-            	} else articulos.add(new Documental(rs.getInt("codigoArticulo"),rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion")));
-
-            }
-            
-        } catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-        }
-		return articulos;
-    }
+    
     
     public static ArrayList<Usuario> selectUsuario()
     {
     	ArrayList<Usuario> usuarios = new ArrayList<Usuario> ();
-        String sql = "SELECT codUsuario, nombreCompleto, edad, nombreUsuario, contrasena, saldo FROM Usuario";
+        String sql = "SELECT codUsuario, nombreCompleto, edad, nombreUsuario, contrasena, saldo, esAdmin FROM Usuario";
 
         try
                 (
@@ -96,7 +61,7 @@ public class SelectData
             // loop through the result set
             while (rs.next())
             {
-            	Usuario u = new Usuario(rs.getString("nombreUsuario"), rs.getString("contrasena"), rs.getInt("saldo"));
+            	Usuario u = new Usuario(rs.getInt("codUsuario"),rs.getString("nombreCompleto"),rs.getInt("edad"), rs.getString("nombreUsuario"), rs.getString("contrasena"), rs.getInt("saldo"),rs.getInt("esAdmin"));
                 
                 usuarios.add(u);
                 
@@ -131,56 +96,7 @@ public class SelectData
         }
     }
     
-    public static void insertArticulo(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
-    {
-    	
-        String sql = "INSERT INTO Articulo( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
-
-        try
-                (
-                        Connection conn = connect();
-                        PreparedStatement pstmt = conn.prepareStatement(sql)
-                )
-        {
-        	
-            
-            pstmt.setInt(1, codigoTipo);
-            pstmt.setString(2, nombreArticulo);
-            pstmt.setDouble(3, precioArticulo);
-            pstmt.setString(4, descripcion);
-            pstmt.setString(5, categoria);
-            pstmt.setInt(6, duracion);
-            
-            pstmt.executeUpdate();
-            
-            if (codigoTipo == 1){
-            	
-            	
-            	SelectData.insertPelicula(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion);
-            	
-            }
-            if (codigoTipo == 2){
-            	
-            	int temporadas = 0;
-            	int episodios = 0;
-            	
-            	SelectData.insertSerie(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion, temporadas, episodios);
-            }
-            
-            if (codigoTipo == 3){
-            	
-            	SelectData.insertDocumental(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion);
-            }
-      
-            
-            
-           
-        }
-        catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-        }
-    }
+   
     
     public static void insertPelicula(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
     {

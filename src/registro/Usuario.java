@@ -6,6 +6,18 @@ package registro;
  */
 public class Usuario {
 	/**
+	 * El codigo asignado a cada usuario
+	 */
+	private int codUsuario;
+	/**
+	 * El nombre completo de la persona
+	 */
+	private String nombreCompleto;
+	/**
+	 * La edad de la persona
+	 */
+	private int edad;
+	/**
 	 * El nombre de usuario para acceder a la plataforma
 	 */
 	private String nombreUsuario;
@@ -13,6 +25,10 @@ public class Usuario {
 	 * La contrasenya para acceder a la web
 	 */
 	private String contrasena;
+	/**
+	 * Booleano para saber si un usuario es administrador
+	 */
+	private int esAdmin;
 	/**
 	 * La cantidad de dinero disponible que tiene el usuario para alquilar peliculas
 	 */
@@ -22,12 +38,66 @@ public class Usuario {
 	 * @param El nombre de usuario para acceder a la plataforma
 	 * @param La contrasenya para acceder a la plataforma
 	 * @param La cantidad de dinero disponible que tiene el usuario para alquilar peliculas
+	 * @param  Booleano para saber si un usuario es administrador
 	 */
-	public Usuario(String nombreUsuario, String contrasena, float saldo) {
+	public Usuario(int codUsuario, String nombreCompleto, int edad, String nombreUsuario, String contrasena, float saldo, int esAdmin) {
+		this.codUsuario=codUsuario;
+		this.nombreCompleto=nombreCompleto;
+		this.edad= edad;
 		this.nombreUsuario = nombreUsuario;
 		this.contrasena = contrasena;
 		this.saldo=saldo;
+		this.esAdmin=esAdmin;
 	}
+	/**
+	 * Devuelve el codigo de usuario
+	 * @return codigo de usuario
+	 */
+	
+	public int getCodUsuario() {
+		return codUsuario;
+	}
+	/** 
+	 * moficia el codigo de usuario
+	 * @param codUsuario
+	 */
+
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
+	}
+	/**
+	 * devuelve el nombre completo del usuario
+	 * @return nombre completo del usuario
+	 */
+
+
+	public String getNombreCompleto() {
+		return nombreCompleto;
+	}
+	/**
+	 * modifica el nombre completo del usuario
+	 * @param nombreCompleto
+	 */
+
+	public void setNombreCompleto(String nombreCompleto) {
+		this.nombreCompleto = nombreCompleto;
+	}
+	/**
+	 * devuelve la edad del usario
+	 * @return edad del usuario
+	 */
+
+	public int getEdad() {
+		return edad;
+	}
+	/**
+	 * Modifica la edad del usuario
+	 * @param edad
+	 */
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
 	/**
 	 * Devuelve el nombre de usuario
 	 * @return String con el nombre de usuario
@@ -70,10 +140,30 @@ public class Usuario {
 	public void setSaldo(float saldo) {
 		this.saldo = saldo;
 	}
+	
+	
+	/**
+	 * Devuelve el dato si es admin
+	 * @return si es admin
+	 */
+	public int getEsAdmin() {
+		return esAdmin;
+	}
+	
+	/**
+	 * Modifica el dato si es admin
+	 * @param esAdmin
+	 */
+	public void setEsAdmin(int esAdmin) {
+		this.esAdmin = esAdmin;
+	}
 	@Override
 	public String toString() {
-		return "Usuario =" + nombreUsuario + ", Contraseña =" + contrasena+"Saldo ="+saldo;
+		return "Usuario [codUsuario=" + codUsuario + ", nombreCompleto=" + nombreCompleto + ", edad=" + edad
+				+ ", nombreUsuario=" + nombreUsuario + ", contrasena=" + contrasena + ", esAdmin=" + esAdmin
+				+ ", saldo=" + saldo + "]";
 	}
+	
 	
 	public static int restaPrecio(int a, int b){
 		int r=a-b;
