@@ -83,7 +83,7 @@ public class Admin extends JFrame {
 		}
 		list.setModel(model);
 		
-		JButton btnNewButton = new JButton("A\u00F1adir Articulo");
+		JButton btnNewButton = new JButton("Anadir Articulo");
 		
 		btnNewButton.setBounds(654, 449, 272, 43);
 		contentPane.add(btnNewButton);
@@ -216,11 +216,23 @@ public class Admin extends JFrame {
 					}
 					list.setModel(documentales);
 				}
+				if(comboBox.getSelectedItem().toString()=="Anadir Articulo"){
+					textField_6.setVisible(false);
+					lblEpisodios.setVisible(false);
+					lblTemporadas.setVisible(false);
+					textField_7.setVisible(false);
+					DefaultListModel<Articulo>articulos = new DefaultListModel<Articulo>();
+					ArrayList<Articulo> art = bd.SelectData.selectArticulos();
+					for(Articulo a : art ){
+						articulos.addElement(a);
+					}
+					list.setModel(articulos);
+				}
 				
 				
 			}
 		});
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"A\u00F1adir Articulo", "Pelicula", "Serie", "Documental"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Anadir Articulo", "Pelicula", "Serie", "Documental"}));
 		comboBox.setBounds(210, 24, 228, 43);
 		contentPane.add(comboBox);
 		
@@ -309,6 +321,24 @@ public class Admin extends JFrame {
 		btnNewButton_1.setBounds(506, 619, 288, 29);
 		contentPane.add(btnNewButton_1);
 		
+		JButton btnEliminarArticulo = new JButton("Eliminar Articulo");
+		btnEliminarArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Articulo art = (Articulo) list.getSelectedValue();
+				bd.DeleteData.deleteArticulo(art.getNombreArticulo(), art.getCodigoTipo());
+				
+				DefaultListModel<Articulo> articulos = new DefaultListModel<Articulo>();
+				ArrayList<Articulo> arti = bd.SelectData.selectArticulos();
+				for(Articulo a : arti){
+					articulos.addElement(a);
+				}
+				list.setModel(articulos);
+			}
+		});
+		btnEliminarArticulo.setBounds(506, 574, 288, 29);
+		contentPane.add(btnEliminarArticulo);
+		
 		
 		
 		
@@ -324,19 +354,20 @@ public class Admin extends JFrame {
 				String categoria = textField_4.getText();
 				String d = textField_5.getText();
 				int duracion = Integer.parseInt(d);
-				String l = textField_6.getText();
-				int temporadas = Integer.parseInt(l);
-				String ll = textField_7.getText();
-				int episodios = Integer.parseInt(ll);
 				
 				
-				if(comboBox.getSelectedItem().toString()=="Pelicula"){
+				
+				if(codigoTipo==1){
 					bd.SelectData.insertPelicula(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion);
 				}
-				if(comboBox.getSelectedItem().toString()=="Serie"){
+				if(codigoTipo==2){
+					String l = textField_6.getText();
+					int temporadas = Integer.parseInt(l);
+					String ll = textField_7.getText();
+					int episodios = Integer.parseInt(ll);
 					bd.SelectData.insertSerie(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion, temporadas, episodios);
 				}
-				if(comboBox.getSelectedItem().toString()=="Documental"){
+				if(codigoTipo==3){
 					bd.SelectData.insertDocumental(codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion);
 				}
 				
