@@ -32,7 +32,7 @@ public class Usuario {
 	/**
 	 * La cantidad de dinero disponible que tiene el usuario para alquilar peliculas
 	 */
-	private float saldo;
+	private double saldo;
 	/**
 	 * Rellena los parametros de la clase Usuario
 	 * @param El nombre de usuario para acceder a la plataforma
@@ -40,7 +40,7 @@ public class Usuario {
 	 * @param La cantidad de dinero disponible que tiene el usuario para alquilar peliculas
 	 * @param  Booleano para saber si un usuario es administrador
 	 */
-	public Usuario(int codUsuario, String nombreCompleto, int edad, String nombreUsuario, String contrasena, float saldo, int esAdmin) {
+	public Usuario(int codUsuario, String nombreCompleto, int edad, String nombreUsuario, String contrasena, double saldo, int esAdmin) {
 		this.codUsuario=codUsuario;
 		this.nombreCompleto=nombreCompleto;
 		this.edad= edad;
@@ -130,14 +130,14 @@ public class Usuario {
 	 *  Devuelve el saldo
 	 * @return Float de salgo
 	 */
-	public float getSaldo() {
+	public double getSaldo() {
 		return saldo;
 	}
 	/**
 	 * Modifica el saldo
 	 * @param saldo El nuevo saldo
 	 */
-	public void setSaldo(float saldo) {
+	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 	
