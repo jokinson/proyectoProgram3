@@ -34,7 +34,7 @@ public class Usuario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Usuario() {
+	public Usuario(Usuario u) {
 		setTitle("Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 787, 533);

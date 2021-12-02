@@ -54,7 +54,7 @@ public class ArticuloEspecifico extends JFrame {
 				double saldoFinal = antiguoSaldo - precio;
 				if(saldoFinal>=0.0){
 					u.setSaldo(saldoFinal);
-					for(Usuario p : usuarios1){
+					for(Usuario p : u){
 						if(p.getNombreUsuario().equals(u.getNombreUsuario())){
 							Ficheros.escribirSaldoNuevo(usuarios1, u, saldoFinal);
 							JOptionPane.showMessageDialog(PantallaPDisponibles.this, "Compra realizada correctamente");

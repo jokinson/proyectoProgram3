@@ -259,6 +259,7 @@ public class Admin extends JFrame {
 					lblTemporadas.setVisible(false);
 					btnNewButton.setVisible(false);
 					btnNewButton_1.setVisible(true);
+					comboBox.setVisible(false);
 					
 					
 					DefaultListModel<Usuario> usuarios = new DefaultListModel<Usuario>();
@@ -275,18 +276,23 @@ public class Admin extends JFrame {
 					textField_3.setVisible(true);
 					textField_4.setVisible(true);
 					textField_5.setVisible(true);
-					textField_6.setVisible(true);
-					textField_7.setVisible(true);
+					if(comboBox.getSelectedItem().toString() == "Serie"){
+						textField_6.setVisible(true);
+						textField_7.setVisible(true);
+						lblEpisodios.setVisible(true);
+						lblTemporadas.setVisible(true);
+					}
+					
 					lblCodigoDeArticulo.setVisible(true);
 					lblNombreDeArticulo.setVisible(true);
 					lblPrecioDeArticulo.setVisible(true);
 					lblDescripcion.setVisible(true);
 					lblCategoria.setVisible(true);
 					lblDuracion.setVisible(true);
-					lblEpisodios.setVisible(true);
-					lblTemporadas.setVisible(true);
+					
 					btnNewButton.setVisible(true);
 					btnNewButton_1.setVisible(false);
+					comboBox.setVisible(true);
 					
 					DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 					ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();

@@ -126,6 +126,32 @@ public class SelectData
         {
             System.out.println(e.getMessage());
         }
+        String sql1 = "INSERT INTO Articulo( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
     public static void insertSerie(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion, int temporadas, int episodios)
@@ -160,6 +186,32 @@ public class SelectData
         {
             System.out.println(e.getMessage());
         }
+        String sql1 = "INSERT INTO Articulo( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     }
     
     public static void insertDocumental(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
@@ -170,6 +222,32 @@ public class SelectData
                 (
                         Connection conn = connect();
                         PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+            
+            pstmt.setInt(1, codigoTipo);
+            pstmt.setString(2, nombreArticulo);
+            pstmt.setDouble(3, precioArticulo);
+            pstmt.setString(4, descripcion);
+            pstmt.setString(5, categoria);
+            pstmt.setInt(6, duracion);
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        String sql1 = "INSERT INTO Articulo( codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion) VALUES(?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
                 )
         {
             
@@ -298,6 +376,68 @@ public class SelectData
     		articulos.add(d);
     	}
     	
+		return articulos;
+    	
+    }
+    
+    public static void insertPeliculaUsuario(Usuario u , Articulo a){
+    	
+    	int codUsuario = u.getCodUsuario();
+    	int codigoArticulo = a.getCodigoArticulo();
+    	
+    	String sql1 = "INSERT INTO ArticulosUsuario(codUsuario, codigoArticulo ) VALUES(?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+            
+            pstmt.setInt(1, codUsuario);
+            pstmt.setInt(2, codigoArticulo);
+            
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    	
+    }
+    public static ArrayList<Articulo> selectpeliculasUsuario(Usuario u){
+    	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
+    	   	
+    	String sql = "SELECT codUsuario, codigoArticulo FROM ArticulosUsuario";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	if(rs.getInt("codUsuario") == u.getCodUsuario()){
+            		
+            		
+            		
+            	}
+                
+            }
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
 		return articulos;
     	
     }
