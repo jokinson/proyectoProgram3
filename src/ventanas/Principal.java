@@ -55,7 +55,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal(Usuario a) {
-		ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
+		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1052, 1020);
 		contentPane = new JPanel();
@@ -112,28 +112,28 @@ public class Principal extends JFrame {
 		JButton btnNewButton_4 = new JButton("New button");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Articulo peli = null;
-				for(Articulo art : articulos){
-					if(art.getNombreArticulo() == "Titanic"){
-						peli = art;
-					}
-				}
-				ArticuloEspecifico ae=new ArticuloEspecifico(peli, a);
-				ae.setVisible(true);
-				dispose();
+				//Articulo peli = null;
+				//for(Articulo art : articulos){
+					//if(art.getNombreArticulo() == "Titanic"){
+						//peli = art;
+					//}
+				//}
+				//ArticuloEspecifico ae=new ArticuloEspecifico(peli, a);
+				//ae.setVisible(true);
+				//dispose();
 			}
 		});
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (1).jpg"));
+		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Titanic.jpg"));
 		btnNewButton_4.setBounds(0, 0, 169, 236);
 		desktopPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_4_1 = new JButton("");
-		btnNewButton_4_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (2).jpg"));
+		btnNewButton_4_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Avatar.jpg"));
 		btnNewButton_4_1.setBounds(171, 0, 184, 236);
 		desktopPane.add(btnNewButton_4_1);
 		
 		JButton btnNewButton_4_1_1 = new JButton("");
-		btnNewButton_4_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (3).jpg"));
+		btnNewButton_4_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Harry Potter.jpg"));
 		btnNewButton_4_1_1.setBounds(356, 0, 177, 236);
 		desktopPane.add(btnNewButton_4_1_1);
 		
@@ -145,13 +145,13 @@ public class Principal extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga.png"));
+		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Ver mas.png"));
 		btnNewButton_5.setBounds(533, 0, 189, 236);
 		desktopPane.add(btnNewButton_5);
 		
 		JButton button = new JButton("");
 		button.setBackground(new Color(255, 255, 255));
-		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\usuario1.png"));
+		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\usuario1.png"));
 		button.setBounds(793, 0, 135, 129);
 		contentPane.add(button);
 		
@@ -179,27 +179,27 @@ public class Principal extends JFrame {
 		label.setForeground(new Color(204, 204, 51));
 		
 		JButton btnNewButton_4_2 = new JButton("");
-		btnNewButton_4_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (4).jpg"));
+		btnNewButton_4_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Lupin.jpg"));
 		btnNewButton_4_2.setBounds(0, 0, 169, 245);
 		desktopPane_1.add(btnNewButton_4_2);
 		
 		JButton btnNewButton_4_1_2 = new JButton("");
-		btnNewButton_4_1_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (5).jpg"));
+		btnNewButton_4_1_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\La casa de papel.jpg"));
 		btnNewButton_4_1_2.setBounds(171, 0, 184, 245);
 		desktopPane_1.add(btnNewButton_4_1_2);
 		
 		JButton btnNewButton_4_1_1_1 = new JButton("");
-		btnNewButton_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (6).jpg"));
+		btnNewButton_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Venom.jpg"));
 		btnNewButton_4_1_1_1.setBounds(356, 0, 177, 245);
 		desktopPane_1.add(btnNewButton_4_1_1_1);
 		
 		JButton btnNewButton_5_1 = new JButton("");
-		btnNewButton_5_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (7).jpg"));
+		btnNewButton_5_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Blacklist.jpg"));
 		btnNewButton_5_1.setBounds(533, 0, 189, 245);
 		desktopPane_1.add(btnNewButton_5_1);
 		
 		JButton btnNewButton_5_1_1 = new JButton("");
-		btnNewButton_5_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (8).jpg"));
+		btnNewButton_5_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\The good doctor.jpg"));
 		btnNewButton_5_1_1.setBounds(723, 0, 169, 245);
 		desktopPane_1.add(btnNewButton_5_1_1);
 		
