@@ -18,13 +18,12 @@ public class ProgramaPrincipal {
 		ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		
 		
-				
 		Usuario u1 = usuarios.get(0);
-			
-		Articulo a1 = articulos.get(30);
+		ArrayList<Articulo> art = bd.SelectData.selectArticulosUsuario(u1);
 		
-		bd.SelectData.insertPeliculaUsuario(u1, a1);
-		
+		for(Articulo a : art){
+			//System.out.println(a);
+		}
 		
 
 	

@@ -2,39 +2,34 @@ package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import objetos.Articulo;
+import registro.Usuario;
+
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JButton;
 
-public class Usuario extends JFrame {
+public class VUsuario extends JFrame {
 
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Usuario frame = new Usuario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public Usuario(Usuario u) {
+	public VUsuario(Usuario u) {
 		setTitle("Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 787, 533);
@@ -75,5 +70,10 @@ public class Usuario extends JFrame {
 		JButton btnVolver = new JButton("Volver ");
 		btnVolver.setBounds(15, 416, 240, 29);
 		contentPane.add(btnVolver);
+		
+		
+		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
+		ArrayList<Articulo> articulosUsu = bd.SelectData.selectArticulosUsuario(u);
+		
 	}
 }
