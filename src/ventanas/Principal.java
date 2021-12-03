@@ -12,6 +12,7 @@ import registro.Usuario;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -33,6 +34,7 @@ import javax.swing.JTextPane;
 public class Principal extends JFrame {
 
 	private JPanel contentPane;
+	private boolean inicioSesion = false;
 	
 	
 	/*
@@ -55,6 +57,10 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal(Usuario u) {
+		
+		
+		
+		
 		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -153,10 +159,17 @@ public class Principal extends JFrame {
 		JButton button = new JButton("");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(inicioSesion = true){
+					JOptionPane.showMessageDialog(Principal.this, "Debes iniciar sesion");
+					VUsuario vu = new VUsuario(u);
+					vu.setVisible(true);
+					dispose();
+				}else if ( inicioSesion = false){
+					Login log = new Login();
+					log.setVisible(true);
+					dispose();
+				}
 				
-				VUsuario vu = new VUsuario(u);
-				vu.setVisible(true);
-				dispose();
 				
 			}
 		});
