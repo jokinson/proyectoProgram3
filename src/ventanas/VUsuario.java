@@ -74,6 +74,7 @@ public class VUsuario extends JFrame {
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 		ArrayList<Articulo> articulosUsu = bd.SelectData.selectArticulosUsuario(u);
+		list.setModel(model);
 		
 	}
 }

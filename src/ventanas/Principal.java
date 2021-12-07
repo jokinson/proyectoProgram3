@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import objetos.Articulo;
@@ -55,6 +56,7 @@ public class Principal extends JFrame {
 	 * Create the frame.
 	 */
 	public Principal(Usuario a) {
+		setTitle("Principal");
 		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1052, 1020);
@@ -67,12 +69,13 @@ public class Principal extends JFrame {
 		JLabel lblKapitalfilms = new JLabel("KAPITAL-FILMS");
 		lblKapitalfilms.setBackground(new Color(240, 240, 240));
 		lblKapitalfilms.setForeground(new Color(204, 204, 51));
-		lblKapitalfilms.setFont(new Font("Mongolian Baiti", Font.BOLD | Font.ITALIC, 55));
-		lblKapitalfilms.setBounds(239, 16, 473, 98);
+		lblKapitalfilms.setFont(new Font("Mongolian Baiti", Font.BOLD | Font.ITALIC, 58));
+		lblKapitalfilms.setBounds(239, 16, 558, 98);
 		contentPane.add(lblKapitalfilms);
 		
 		JButton btnNewButton = new JButton("PELICULAS");
 		btnNewButton.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+	
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -80,28 +83,28 @@ public class Principal extends JFrame {
 		});
 		btnNewButton.setForeground(new Color(204, 204, 51));
 		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setBounds(52, 130, 221, 46);
+		btnNewButton.setBounds(72, 130, 221, 46);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_3 = new JButton("ABOUT US");
 		btnNewButton_3.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_3.setForeground(new Color(204, 204, 51));
 		btnNewButton_3.setBackground(new Color(0, 0, 0));
-		btnNewButton_3.setBounds(754, 130, 174, 46);
+		btnNewButton_3.setBounds(777, 130, 174, 46);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_1 = new JButton("SERIES");
 		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(204, 204, 51));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(288, 130, 221, 46);
+		btnNewButton_1.setBounds(308, 130, 221, 46);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DOCUMENTALES");
 		btnNewButton_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_2.setForeground(new Color(204, 204, 51));
 		btnNewButton_2.setBackground(new Color(0, 0, 0));
-		btnNewButton_2.setBounds(524, 130, 215, 46);
+		btnNewButton_2.setBounds(544, 130, 215, 46);
 		contentPane.add(btnNewButton_2);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -138,6 +141,7 @@ public class Principal extends JFrame {
 		desktopPane.add(btnNewButton_4_1_1);
 		
 		JButton btnNewButton_5 = new JButton("New button");
+		
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VerMas vm= new VerMas();
@@ -152,7 +156,7 @@ public class Principal extends JFrame {
 		JButton button = new JButton("");
 		button.setBackground(new Color(255, 255, 255));
 		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\usuario1.png"));
-		button.setBounds(793, 0, 135, 129);
+		button.setBounds(901, 0, 129, 115);
 		contentPane.add(button);
 		
 		JLabel lblComprasPopulares = new JLabel("M\u00C1S VECES COMPRADAS");
@@ -164,7 +168,7 @@ public class Principal extends JFrame {
 		JLabel lblTopTendencias = new JLabel("TOP 5 TENDENCIAS AHORA");
 		lblTopTendencias.setForeground(new Color(204, 204, 51));
 		lblTopTendencias.setFont(new Font("Mongolian Baiti", Font.BOLD, 24));
-		lblTopTendencias.setBounds(92, 541, 414, 52);
+		lblTopTendencias.setBounds(82, 539, 414, 52);
 		contentPane.add(lblTopTendencias);
 		
 		JDesktopPane desktopPane_1 = new JDesktopPane();
