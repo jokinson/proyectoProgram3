@@ -123,17 +123,17 @@ public class Principal extends JFrame {
 				//dispose();
 			}
 		});
-		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Titanic.jpg"));
+		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Titanic.jpg"));
 		btnNewButton_4.setBounds(0, 0, 169, 236);
 		desktopPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_4_1 = new JButton("");
-		btnNewButton_4_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Avatar.jpg"));
+		btnNewButton_4_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Avatar.jpg"));
 		btnNewButton_4_1.setBounds(171, 0, 184, 236);
 		desktopPane.add(btnNewButton_4_1);
 		
 		JButton btnNewButton_4_1_1 = new JButton("");
-		btnNewButton_4_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Harry Potter.jpg"));
+		btnNewButton_4_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Harry Potter.jpg"));
 		btnNewButton_4_1_1.setBounds(356, 0, 177, 236);
 		desktopPane.add(btnNewButton_4_1_1);
 		
@@ -145,13 +145,13 @@ public class Principal extends JFrame {
 				dispose();
 			}
 		});
-		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Ver mas.png"));
+		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Ver mas.png"));
 		btnNewButton_5.setBounds(533, 0, 189, 236);
 		desktopPane.add(btnNewButton_5);
 		
 		JButton button = new JButton("");
 		button.setBackground(new Color(255, 255, 255));
-		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\usuario1.png"));
+		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\usuario1.png"));
 		button.setBounds(793, 0, 135, 129);
 		contentPane.add(button);
 		
@@ -179,27 +179,27 @@ public class Principal extends JFrame {
 		label.setForeground(new Color(204, 204, 51));
 		
 		JButton btnNewButton_4_2 = new JButton("");
-		btnNewButton_4_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Lupin.jpg"));
+		btnNewButton_4_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Lupin.jpg"));
 		btnNewButton_4_2.setBounds(0, 0, 169, 245);
 		desktopPane_1.add(btnNewButton_4_2);
 		
 		JButton btnNewButton_4_1_2 = new JButton("");
-		btnNewButton_4_1_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\La casa de papel.jpg"));
+		btnNewButton_4_1_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\La casa de papel.jpg"));
 		btnNewButton_4_1_2.setBounds(171, 0, 184, 245);
 		desktopPane_1.add(btnNewButton_4_1_2);
 		
 		JButton btnNewButton_4_1_1_1 = new JButton("");
-		btnNewButton_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Venom.jpg"));
+		btnNewButton_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Venom.jpg"));
 		btnNewButton_4_1_1_1.setBounds(356, 0, 177, 245);
 		desktopPane_1.add(btnNewButton_4_1_1_1);
 		
 		JButton btnNewButton_5_1 = new JButton("");
-		btnNewButton_5_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\Blacklist.jpg"));
+		btnNewButton_5_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Blacklist.jpg"));
 		btnNewButton_5_1.setBounds(533, 0, 189, 245);
 		desktopPane_1.add(btnNewButton_5_1);
 		
 		JButton btnNewButton_5_1_1 = new JButton("");
-		btnNewButton_5_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\Images\\The good doctor.jpg"));
+		btnNewButton_5_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\The good doctor.jpg"));
 		btnNewButton_5_1_1.setBounds(723, 0, 169, 245);
 		desktopPane_1.add(btnNewButton_5_1_1);
 		
@@ -230,14 +230,14 @@ public class Principal extends JFrame {
 		JLabel lblNewLabel = new JLabel("@KapitalFilms_");
 		lblNewLabel.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
 		lblNewLabel.setForeground(new Color(204, 204, 51));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (9).jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo Insta.jpg"));
 		lblNewLabel.setBounds(459, 883, 147, 20);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("@KapitalFilms_");
 		lblNewLabel_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
 		lblNewLabel_1.setForeground(new Color(204, 204, 51));
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\descarga (8).png"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
 		lblNewLabel_1.setBounds(459, 919, 147, 20);
 		contentPane.add(lblNewLabel_1);
 	}
