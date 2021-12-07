@@ -45,45 +45,7 @@ public class ArticuloEspecifico extends JFrame {
 		
 		JButton btnNewButton = new JButton("A\u00F1adir pelicula");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String nombre =u.getNombreUsuario();
-				
-						
-				double precio = p.getPrecioArticulo();	
-				double antiguoSaldo = u.getSaldo();
-				double saldoFinal = antiguoSaldo - precio;
-				if(saldoFinal>=0.0){
-					u.setSaldo(saldoFinal);
-					for(Usuario p : u){
-						if(p.getNombreUsuario().equals(u.getNombreUsuario())){
-							Ficheros.escribirSaldoNuevo(usuarios1, u, saldoFinal);
-							JOptionPane.showMessageDialog(PantallaPDisponibles.this, "Compra realizada correctamente");
-							
-						}
-					}
-				}else{
-					
-					JOptionPane.showMessageDialog(PantallaPDisponibles.this, "No dispone de suficiente saldo, porfavor recarge saldo y vuelva a intentarlo");
-				}
-				
-			
-				
-				ArrayList<Usuario>usuarios=Ficheros.leerUsuarios();
-				for(int i=0; i<usuarios.size();i++){
-					if(usuarios.get(i).getNombreUsuario().equals(nombre)){
-						Usuario usuario = new Usuario(usuarios.get(i).getNombreUsuario(),usuarios.get(i).getPass(),usuarios.get(i).getSaldo(),peliculas);
-						usuarios.remove(i);
-						usuarios.add(usuario);
-					}
-				}
-				
-				Ficheros.escribirUsuarios(usuarios);
-				PantallaPrincipal panel= new PantallaPrincipal(u);
-				panel.setVisible(true);
-				PantallaPDisponibles.this.dispose();
-				
-				
-			}
+			public void actionPerformed(ActionEvent e) {}
 		});
 		btnNewButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnNewButton.setBounds(30, 292, 178, 29);

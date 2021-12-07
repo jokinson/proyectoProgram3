@@ -410,7 +410,8 @@ public class SelectData
         }
     	
     }
-    public static ArrayList<Articulo> selectpeliculasUsuario(Usuario u){
+    public static ArrayList<Articulo> selectArticulosUsuario(Usuario u){
+    	ArrayList<Articulo> art = bd.SelectData.selectArticulos();
     	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
     	   	
     	String sql = "SELECT codUsuario, codigoArticulo FROM ArticulosUsuario";
@@ -427,6 +428,11 @@ public class SelectData
             while (rs.next())
             {
             	if(rs.getInt("codUsuario") == u.getCodUsuario()){
+            		for(Articulo a : art ){
+            			if(rs.getInt("codigoArticulo") == a.getCodigoArticulo()){
+            				articulos.add(a);
+            			}
+            		}
             		
             		
             		
@@ -441,6 +447,7 @@ public class SelectData
 		return articulos;
     	
     }
+    
     
     
     
