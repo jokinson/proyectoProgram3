@@ -16,6 +16,8 @@ import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JList;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VUsuario extends JFrame {
 
@@ -68,13 +70,24 @@ public class VUsuario extends JFrame {
 		contentPane.add(btnAgregarSaldo);
 		
 		JButton btnVolver = new JButton("Volver ");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Principal p = new Principal(u);
+				p.setVisible(true);
+				dispose();
+			}
+		});
 		btnVolver.setBounds(15, 416, 240, 29);
 		contentPane.add(btnVolver);
 		
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 		ArrayList<Articulo> articulosUsu = bd.SelectData.selectArticulosUsuario(u);
-		list.setModel(model);
 		
+		for(Articulo a: articulosUsu){
+			model.addElement(a);
+		}
+	
+		list.setModel(model);
 	}
 }

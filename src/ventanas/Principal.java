@@ -13,6 +13,7 @@ import registro.Usuario;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -35,7 +36,7 @@ public class Principal extends JFrame {
 
 	private JPanel contentPane;
 	
-	
+	Usuario u;
 	/*
 	 * Launch the application
 	 */
@@ -43,8 +44,8 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Usuario Usuario = null;
-					Principal frame = new Principal(Usuario);
+					Usuario usuario = null;
+					Principal frame = new Principal(usuario);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,10 +53,29 @@ public class Principal extends JFrame {
 			}
 		});
 	}
+	
+	
+	
+	
+	public Usuario getU() {
+		return u;
+	}
+
+
+
+
+	public void setU(Usuario u) {
+		this.u = u;
+	}
+
+
+
+
 	/**
 	 * Create the frame.
 	 */
-	public Principal(Usuario a) {
+	public Principal(Usuario usuario) {
+		this.u = usuario;
 		setTitle("Principal");
 		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -78,7 +98,9 @@ public class Principal extends JFrame {
 	
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				ListaPeliculas l = new ListaPeliculas(usuario);
+				l.setVisible(true);
+				dispose();
 			}
 		});
 		btnNewButton.setForeground(new Color(204, 204, 51));
@@ -154,6 +176,24 @@ public class Principal extends JFrame {
 		desktopPane.add(btnNewButton_5);
 		
 		JButton button = new JButton("");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(getU() == null){
+					//vamos al login
+					JOptionPane.showMessageDialog(Principal.this, "Debes iniciar sesión");
+					Login log = new Login();
+					log.setVisible(true);
+					dispose();
+					
+				}else{
+					//no hacemos nadda
+					
+					VUsuario usu = new VUsuario(usuario);
+					usu.setVisible(true);
+					dispose();
+				}
+			}
+		});
 		button.setBackground(new Color(255, 255, 255));
 		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\usuario1.png"));
 		button.setBounds(901, 0, 129, 115);
