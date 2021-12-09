@@ -152,12 +152,38 @@ public class Principal extends JFrame {
 		btnNewButton_4.setBounds(0, 0, 169, 236);
 		desktopPane.add(btnNewButton_4);
 		
-		JButton btnNewButton_4_1 = new JButton("");
+		JButton btnNewButton_4_1 = new JButton("Avatar");
+		btnNewButton_4_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 1){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_4_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Avatar.jpg"));
 		btnNewButton_4_1.setBounds(171, 0, 184, 236);
 		desktopPane.add(btnNewButton_4_1);
 		
 		JButton btnNewButton_4_1_1 = new JButton("");
+		btnNewButton_4_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 14){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_4_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Harry Potter.jpg"));
 		btnNewButton_4_1_1.setBounds(356, 0, 177, 236);
 		desktopPane.add(btnNewButton_4_1_1);
@@ -223,26 +249,91 @@ public class Principal extends JFrame {
 		label.setForeground(new Color(204, 204, 51));
 		
 		JButton btnNewButton_4_2 = new JButton("");
+		btnNewButton_4_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 52){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_4_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Lupin.jpg"));
 		btnNewButton_4_2.setBounds(0, 0, 169, 245);
 		desktopPane_1.add(btnNewButton_4_2);
 		
 		JButton btnNewButton_4_1_2 = new JButton("");
+		btnNewButton_4_1_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 60){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_4_1_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\La casa de papel.jpg"));
 		btnNewButton_4_1_2.setBounds(171, 0, 184, 245);
 		desktopPane_1.add(btnNewButton_4_1_2);
 		
 		JButton btnNewButton_4_1_1_1 = new JButton("");
+		btnNewButton_4_1_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 61){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Venom.jpg"));
 		btnNewButton_4_1_1_1.setBounds(356, 0, 177, 245);
 		desktopPane_1.add(btnNewButton_4_1_1_1);
 		
 		JButton btnNewButton_5_1 = new JButton("");
+		btnNewButton_5_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 62){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_5_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Blacklist.jpg"));
 		btnNewButton_5_1.setBounds(533, 0, 189, 245);
 		desktopPane_1.add(btnNewButton_5_1);
 		
 		JButton btnNewButton_5_1_1 = new JButton("");
+		btnNewButton_5_1_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				for(Articulo a : articulos){
+					if(a.getCodigoArticulo() == 63){
+						ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+						ae.setVisible(true);
+						dispose();
+					}
+				}
+				
+			}
+		});
 		btnNewButton_5_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\The good doctor.jpg"));
 		btnNewButton_5_1_1.setBounds(723, 0, 169, 245);
 		desktopPane_1.add(btnNewButton_5_1_1);

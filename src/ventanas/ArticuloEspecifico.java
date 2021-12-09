@@ -87,6 +87,7 @@ public class ArticuloEspecifico extends JFrame {
 		textArea.setFont(new Font("Baskerville Old Face", Font.PLAIN, 19));
 		textArea.setEditable(false);
 		textArea.setBounds(25, 74, 599, 194);
+		textArea.setLineWrap(true);
 		
 		
 		JLabel lblPrecio_1 = new JLabel("Precio: "+p.getPrecioArticulo());

@@ -5,6 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import objetos.Articulo;
+import registro.Usuario;
+
 /**
  *
  * @author sqlitetutorial.net
@@ -133,6 +136,38 @@ public class DeleteData
     		
     	}
         
+    }
+    
+    
+public static void actualizar(Usuario u, Articulo a){
+    	
+    	
+    	
+    	String sql1 = "DELETE FROM ArticulosUsuario WHERE codUsuario = ? AND codigoArticulo = ?";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+            
+            pstmt.setInt(1, u.getCodUsuario());
+            pstmt.setInt(2, a.getCodigoArticulo());
+            
+            
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    	
     }
 
     /**

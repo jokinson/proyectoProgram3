@@ -18,6 +18,8 @@ import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.awt.Color;
 
 public class VUsuario extends JFrame {
 
@@ -62,10 +64,28 @@ public class VUsuario extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		JButton btnDevolverArticulo = new JButton("Devolver Articulo");
+		btnDevolverArticulo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Articulo a = (Articulo) list.getSelectedValue();
+				
+				bd.DeleteData.actualizar(u, a);
+				
+				DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
+				ArrayList<Articulo> articulos = bd.SelectData.selectArticulosUsuario(u);
+				for(Articulo art : articulos){
+					model.addElement(art);
+				}
+				
+				list.setModel(model);
+				
+			}
+		});
 		btnDevolverArticulo.setBounds(457, 416, 240, 29);
 		contentPane.add(btnDevolverArticulo);
 		
 		JButton btnAgregarSaldo = new JButton("Agregar Saldo");
+		btnAgregarSaldo.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnAgregarSaldo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -98,5 +118,16 @@ public class VUsuario extends JFrame {
 		}
 	
 		list.setModel(model);
+		
+		JLabel lblLaTuki = new JLabel(u.getNombreUsuario()+"");
+		lblLaTuki.setBackground(new Color(240, 240, 240));
+		lblLaTuki.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblLaTuki.setBounds(201, 101, 173, 29);
+		contentPane.add(lblLaTuki);
+		
+		JLabel lblTuki = new JLabel(u.getSaldo()+"");
+		lblTuki.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblTuki.setBounds(65, 238, 240, 38);
+		contentPane.add(lblTuki);
 	}
 }
