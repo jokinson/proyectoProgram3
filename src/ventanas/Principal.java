@@ -77,7 +77,7 @@ public class Principal extends JFrame {
 	public Principal(Usuario usuario) {
 		this.u = usuario;
 		setTitle("Principal");
-		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
+		ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1052, 1020);
 		contentPane = new JPanel();
@@ -134,18 +134,18 @@ public class Principal extends JFrame {
 		desktopPane.setBounds(82, 266, 736, 272);
 		contentPane.add(desktopPane);
 		
-		JButton btnNewButton_4 = new JButton("New button");
+		JButton btnNewButton_4 = new JButton("Titanic");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//Articulo peli = null;
-				//for(Articulo art : articulos){
-					//if(art.getNombreArticulo() == "Titanic"){
-						//peli = art;
-					//}
-				//}
-				//ArticuloEspecifico ae=new ArticuloEspecifico(peli, a);
-				//ae.setVisible(true);
-				//dispose();
+				
+				
+					for(Articulo a : articulos){
+						if(a.getCodigoArticulo() == 59){
+							ArticuloEspecifico ae = new ArticuloEspecifico(a, usuario);
+							ae.setVisible(true);
+							dispose();
+						}
+					}
 			}
 		});
 		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Titanic.jpg"));

@@ -96,7 +96,55 @@ public class SelectData
         }
     }
     
-   
+    public static void insertUsuarioNuevo(Usuario u)
+    {
+    	String sql1 = "DELETE FROM Usuario WHERE nombreUsuario = ?";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+
+            // set the corresponding param
+            pstmt.setString(1, u.getNombreUsuario());
+
+            // execute the delete statement
+            pstmt.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+        String sql = "INSERT INTO Usuario(codUsuario,nombreCompleto,edad,nombreUsuario,contrasena,saldo,esAdmin) VALUES(?,?,?,?,?,?,?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql)
+                )
+        {
+        	pstmt.setInt(1, u.getCodUsuario());
+            pstmt.setString(2, u.getNombreCompleto());
+            pstmt.setInt(3, u.getEdad());
+            pstmt.setString(4, u.getNombreUsuario());
+            pstmt.setString(5, u.getContrasena());
+            pstmt.setDouble(6, u.getSaldo());
+            pstmt.setInt(7, u.getEsAdmin());
+            pstmt.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        
+
+        
+    
+    }
     
     public static void insertPelicula(int codigoTipo, String nombreArticulo, double precioArticulo, String descripcion, String categoria, int duracion)
     {
@@ -379,6 +427,36 @@ public class SelectData
 		return articulos;
     	
     }
+    public static ArrayList<Articulo> selectArticulosDeArticulos()
+    {
+    	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
+        String sql = "SELECT codigoArticulo, codigoTipo, nombreArticulo, precioArticulo, descripcion, categoria, duracion FROM Articulo";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	
+            	Articulo d = new Articulo(rs.getInt("codigoArticulo"), rs.getInt("codigoTipo"), rs.getString("nombreArticulo"), rs.getDouble("precioArticulo"), rs.getString("descripcion"), rs.getString("categoria"), rs.getInt("duracion"));
+            	
+            	articulos.add(d);
+            }
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return articulos;
+    }
+    
+    
     
     public static void insertPeliculaUsuario(Usuario u , Articulo a){
     	
@@ -411,7 +489,7 @@ public class SelectData
     	
     }
     public static ArrayList<Articulo> selectArticulosUsuario(Usuario u){
-    	ArrayList<Articulo> art = bd.SelectData.selectArticulos();
+    	ArrayList<Articulo> art = bd.SelectData.selectArticulosDeArticulos();
     	ArrayList<Articulo> articulos = new ArrayList<Articulo>();
     	   	
     	String sql = "SELECT codUsuario, codigoArticulo FROM ArticulosUsuario";
@@ -447,7 +525,35 @@ public class SelectData
 		return articulos;
     	
     }
-    
+public static void actualizarSaldo(Usuario u, double saldoNuevo){
+    	
+    	
+    	
+    	String sql1 = "INSERT INTO Usuarios(saldo ) VALUES(?)";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+            
+            pstmt.setDouble(1, saldoNuevo);
+            
+            
+      
+            pstmt.executeUpdate();
+            
+           
+            
+           
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    	
+    }
     
     
     

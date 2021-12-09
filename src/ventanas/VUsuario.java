@@ -66,6 +66,15 @@ public class VUsuario extends JFrame {
 		contentPane.add(btnDevolverArticulo);
 		
 		JButton btnAgregarSaldo = new JButton("Agregar Saldo");
+		btnAgregarSaldo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AgregarSaldo ag = new AgregarSaldo(u);
+				ag.setVisible(true);
+
+				
+			}
+		});
 		btnAgregarSaldo.setBounds(65, 312, 240, 29);
 		contentPane.add(btnAgregarSaldo);
 		

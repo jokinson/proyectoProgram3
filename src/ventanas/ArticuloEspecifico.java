@@ -28,12 +28,12 @@ import javax.swing.JTextArea;
 public class ArticuloEspecifico extends JFrame {
 
 	private JPanel contentPane;
-	private JFrame ventana;
+	
 
 
 	public ArticuloEspecifico(Articulo p, Usuario u) {
 		setTitle("Informaci\u00F3n Pel\u00EDcula");
-		this.ventana=ventana;
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 680, 394);
@@ -45,7 +45,19 @@ public class ArticuloEspecifico extends JFrame {
 		
 		JButton btnNewButton = new JButton("A\u00F1adir pelicula");
 		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {}
+			public void actionPerformed(ActionEvent e) {
+				
+				if(u == null){
+					JOptionPane.showMessageDialog(ArticuloEspecifico.this, "Debes iniciar sesión");
+					Login log = new Login();
+					log.setVisible(true);
+					dispose();
+				}else{
+					Factura f = new Factura (u, p);
+					f.setVisible(true);
+					
+				}
+			}
 		});
 		btnNewButton.setFont(new Font("Arial", Font.BOLD | Font.ITALIC, 16));
 		btnNewButton.setBounds(30, 292, 178, 29);
@@ -75,19 +87,29 @@ public class ArticuloEspecifico extends JFrame {
 		textArea.setFont(new Font("Baskerville Old Face", Font.PLAIN, 19));
 		textArea.setEditable(false);
 		textArea.setBounds(25, 74, 599, 194);
-		contentPane.add(textArea);
+		
 		
 		JLabel lblPrecio_1 = new JLabel("Precio: "+p.getPrecioArticulo());
 		lblPrecio_1.setForeground(Color.WHITE);
 		lblPrecio_1.setFont(new Font("Baskerville Old Face", Font.PLAIN, 20));
 		lblPrecio_1.setBounds(512, 24, 140, 42);
 		contentPane.add(lblPrecio_1);
+		if(u == null){
+			
+		}else{
+			JLabel lblSaldo = new JLabel("Saldo: "+u.getSaldo());
+			lblSaldo.setForeground(Color.WHITE);
+			lblSaldo.setFont(new Font("Baskerville Old Face", Font.PLAIN, 20));
+			lblSaldo.setBounds(512, 0, 129, 30);
+			contentPane.add(lblSaldo);
+		}
 		
-		JLabel lblSaldo = new JLabel("Saldo: "+u.getSaldo());
-		lblSaldo.setForeground(Color.WHITE);
-		lblSaldo.setFont(new Font("Baskerville Old Face", Font.PLAIN, 20));
-		lblSaldo.setBounds(512, 0, 129, 30);
-		contentPane.add(lblSaldo);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(25, 74, 599, 194);
+		contentPane.add(scrollPane);
+		scrollPane.setViewportView(textArea);
+		
 		DefaultListModel<String> modelPeli = new DefaultListModel<String>();
 	}
 }
