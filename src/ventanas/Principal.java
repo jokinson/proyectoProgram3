@@ -375,5 +375,18 @@ public class Principal extends JFrame {
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
 		lblNewLabel_1.setBounds(459, 919, 147, 20);
 		contentPane.add(lblNewLabel_1);
+		
+		JButton btnBuscadorDeArticulos = new JButton("Buscador de Articulos");
+		btnBuscadorDeArticulos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Buscador b = new Buscador(usuario);
+				b.setVisible(true);
+				
+				
+			}
+		});
+		btnBuscadorDeArticulos.setBounds(777, 192, 215, 29);
+		contentPane.add(btnBuscadorDeArticulos);
 	}
 }
