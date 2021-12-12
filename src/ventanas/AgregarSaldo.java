@@ -56,7 +56,9 @@ public class AgregarSaldo extends JFrame {
 				u.setSaldo(nuevoSaldo);
 				Usuario usuarioNuevo = new Usuario(u.getCodUsuario(), u.getNombreCompleto(), u.getEdad(), u.getNombreUsuario(),u.getContrasena(),u.getSaldo(),u.getEsAdmin());
 				bd.SelectData.insertUsuarioNuevo(usuarioNuevo);
-				
+				VUsuario vu = new VUsuario(u);
+				vu.setVisible(true);
+				dispose();
 			}
 		});
 		btnAceptar.setBounds(15, 162, 115, 29);
@@ -72,5 +74,15 @@ public class AgregarSaldo extends JFrame {
 		});
 		btnVolver.setBounds(191, 162, 115, 29);
 		contentPane.add(btnVolver);
+		
+		JLabel lblSaldo = new JLabel("Saldo:");
+		lblSaldo.setBounds(349, 16, 69, 20);
+		contentPane.add(lblSaldo);
+		
+		JLabel label = new JLabel(u.getSaldo()+"");
+		label.setBounds(409, 16, 69, 20);
+		contentPane.add(label);
+		
+		
 	}
 }

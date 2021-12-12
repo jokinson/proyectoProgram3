@@ -91,6 +91,7 @@ public class VUsuario extends JFrame {
 				
 				AgregarSaldo ag = new AgregarSaldo(u);
 				ag.setVisible(true);
+				dispose();
 
 				
 			}

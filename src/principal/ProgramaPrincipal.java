@@ -1,6 +1,7 @@
 package principal;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import bd.SelectData;
 import objetos.Articulo;
@@ -14,16 +15,12 @@ public class ProgramaPrincipal {
 		// TODO Auto-generated method stub
 		
 		
-		ArrayList<Usuario> usuarios = bd.SelectData.selectUsuario();
-		ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
+		
+		ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
 		
 		
-		Usuario u1 = usuarios.get(0);
-		ArrayList<Articulo> art = bd.SelectData.selectArticulosUsuario(u1);
 		
-		for(Articulo a : art){
-			//System.out.println(a);
-		}
+		
 		
 
 	

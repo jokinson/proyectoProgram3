@@ -380,7 +380,7 @@ public class Principal extends JFrame {
 		btnBuscadorDeArticulos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				Buscador b = new Buscador(usuario);
+				Buscador b = new Buscador(usuario, Principal.this);
 				b.setVisible(true);
 				
 				

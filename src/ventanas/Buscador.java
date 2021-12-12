@@ -36,7 +36,7 @@ public class Buscador extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Buscador(Usuario u) {
+	public Buscador(Usuario u , Principal p) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 357, 548);
 		contentPane = new JPanel();
@@ -69,6 +69,8 @@ public class Buscador extends JFrame {
 				ArticuloEspecifico ae = new ArticuloEspecifico(art, u);
 				ae.setVisible(true);
 				dispose();
+				p.dispose();
+				
 				
 				
 			}

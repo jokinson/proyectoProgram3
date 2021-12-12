@@ -77,6 +77,7 @@ public class Factura extends JFrame {
 				bd.SelectData.insertPeliculaUsuario(u, a);
 				
 				JOptionPane.showMessageDialog(Factura.this, "Gracias por la compra!");
+				dispose();
 				
 				
 			}

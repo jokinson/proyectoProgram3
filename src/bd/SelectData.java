@@ -525,6 +525,46 @@ public class SelectData
 		return articulos;
     	
     }
+
+    public static int selectTendenciasArticulo(Articulo a){
+    	
+    	int i = 0;
+    	String sql = "SELECT codigoArticulo, vecesComprada FROM Tendencias";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	if(rs.getInt("codigoArticulo") == a.getCodigoArticulo()){
+            		
+            		i = rs.getInt("vecesComprada");
+            		
+            		}
+            
+            		
+            		
+            	}
+                
+            
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return i;
+    	
+    }    
+
+		
+    	
+        	
 public static void actualizarSaldo(Usuario u, double saldoNuevo){
     	
     	
