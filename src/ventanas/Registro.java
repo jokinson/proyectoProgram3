@@ -70,7 +70,7 @@ public class Registro extends JFrame {
 				
 				SelectData.insertUsuario(nombreC, eda, nombreUsu, contra);
 				
-				Login login = new Login();
+				Login login = new Login(null);
 				login.setVisible(true);
 				dispose();
 				

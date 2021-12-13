@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import bd.SelectData;
+import objetos.Articulo;
 import registro.Usuario;
 
 import javax.swing.JTextField;
@@ -25,7 +26,7 @@ public class Login extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
-	
+	Articulo a;
 	
 	/*
 	 * Launch the application
@@ -35,7 +36,8 @@ public class Login extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Login() {
+	public Login(Articulo articulo) {
+		this.a = articulo;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 686, 347);
 		contentPane = new JPanel();
@@ -71,9 +73,16 @@ public class Login extends JFrame {
 							admin.setVisible(true);
 							dispose();
 						}else{
-							Principal principal = new Principal(a);
-							principal.setVisible(true);
-							dispose();
+							if(articulo==null){
+								Principal principal = new Principal(a);
+								principal.setVisible(true);
+								dispose();
+							}else{
+								ArticuloEspecifico ae = new ArticuloEspecifico(articulo, a);
+								ae.setVisible(true);
+								dispose();
+							}
+							
 						}
 						
 					}

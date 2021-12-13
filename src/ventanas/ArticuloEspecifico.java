@@ -49,7 +49,7 @@ public class ArticuloEspecifico extends JFrame {
 				
 				if(u == null){
 					JOptionPane.showMessageDialog(ArticuloEspecifico.this, "Debes iniciar sesión");
-					Login log = new Login();
+					Login log = new Login(p);
 					log.setVisible(true);
 					dispose();
 				}else{

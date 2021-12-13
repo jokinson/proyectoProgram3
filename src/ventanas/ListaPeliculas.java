@@ -62,8 +62,14 @@ public class ListaPeliculas extends JFrame {
 				if (u == null){
 					
 					JOptionPane.showMessageDialog(ListaPeliculas.this, "Debes iniciar sesión");
-					
-					Login l = new Login();
+					ArrayList<Articulo> arts = bd.SelectData.selectArticulosDeArticulos();
+					Articulo articulo = null;
+					for (Articulo art : arts){
+						if(art.getNombreArticulo().equals(list.getSelectedValue())){
+							articulo = art;
+						}
+					}
+					Login l = new Login(articulo);
 					l.setVisible(true);
 					
 					dispose();

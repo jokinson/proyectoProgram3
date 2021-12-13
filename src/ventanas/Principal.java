@@ -207,7 +207,7 @@ public class Principal extends JFrame {
 				if(getU() == null){
 					//vamos al login
 					JOptionPane.showMessageDialog(Principal.this, "Debes iniciar sesión");
-					Login log = new Login();
+					Login log = new Login(null);
 					log.setVisible(true);
 					dispose();
 					
