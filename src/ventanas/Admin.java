@@ -80,7 +80,7 @@ public class Admin extends JFrame {
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 		
-		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
+		ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		
 		for (Articulo a : articulos){
 			model.addElement(a);
