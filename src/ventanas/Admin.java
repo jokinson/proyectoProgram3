@@ -31,6 +31,7 @@ import java.awt.event.AdjustmentEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
 
 public class Admin extends JFrame {
 
@@ -60,11 +61,14 @@ public class Admin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	
 	public Admin() {
 		setTitle("Admin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1140, 720);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(0, 0, 0));
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -76,7 +80,7 @@ public class Admin extends JFrame {
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 		
-		ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
+		//ArrayList<Articulo> articulos = bd.SelectData.selectArticulos();
 		
 		for (Articulo a : articulos){
 			model.addElement(a);
@@ -89,6 +93,7 @@ public class Admin extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		textField = new JTextField();
+		textField.setBackground(new Color(102, 102, 102));
 		textField.setBounds(506, 63, 272, 43);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -99,10 +104,15 @@ public class Admin extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblCodigoDeArticulo = new JLabel("Codigo de tipo de Articulo");
+		lblCodigoDeArticulo.setForeground(new Color(204, 204, 51));
+		lblCodigoDeArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblCodigoDeArticulo.setBackground(new Color(0, 0, 0));
 		lblCodigoDeArticulo.setBounds(506, 27, 204, 20);
 		contentPane.add(lblCodigoDeArticulo);
 		
 		JLabel lblNombreDeArticulo = new JLabel("Nombre de Articulo");
+		lblNombreDeArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblNombreDeArticulo.setForeground(new Color(204, 204, 51));
 		lblNombreDeArticulo.setBounds(504, 133, 179, 20);
 		contentPane.add(lblNombreDeArticulo);
 		
@@ -112,6 +122,8 @@ public class Admin extends JFrame {
 		textField_2.setColumns(10);
 		
 		JLabel lblPrecioDeArticulo = new JLabel("Precio de Articulo (double)");
+		lblPrecioDeArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblPrecioDeArticulo.setForeground(new Color(204, 204, 51));
 		lblPrecioDeArticulo.setBounds(506, 225, 242, 20);
 		contentPane.add(lblPrecioDeArticulo);
 		
@@ -121,6 +133,9 @@ public class Admin extends JFrame {
 		textField_3.setColumns(10);
 		
 		JLabel lblDescripcion = new JLabel("Descripcion");
+		lblDescripcion.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblDescripcion.setBackground(new Color(240, 240, 240));
+		lblDescripcion.setForeground(new Color(204, 204, 51));
 		lblDescripcion.setBounds(506, 320, 177, 20);
 		contentPane.add(lblDescripcion);
 		
@@ -130,6 +145,8 @@ public class Admin extends JFrame {
 		textField_4.setColumns(10);
 		
 		JLabel lblCategoria = new JLabel("Categoria");
+		lblCategoria.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblCategoria.setForeground(new Color(204, 204, 51));
 		lblCategoria.setBounds(831, 27, 127, 20);
 		contentPane.add(lblCategoria);
 		
@@ -139,6 +156,8 @@ public class Admin extends JFrame {
 		textField_5.setColumns(10);
 		
 		JLabel lblDuracion = new JLabel("Duracion");
+		lblDuracion.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblDuracion.setForeground(new Color(204, 204, 51));
 		lblDuracion.setBounds(831, 133, 95, 20);
 		contentPane.add(lblDuracion);
 		
@@ -150,6 +169,8 @@ public class Admin extends JFrame {
 		
 		
 		JLabel lblTemporadas = new JLabel("Temporadas");
+		lblTemporadas.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblTemporadas.setForeground(new Color(204, 204, 51));
 		lblTemporadas.setBounds(831, 225, 138, 20);
 		contentPane.add(lblTemporadas);
 		
@@ -162,6 +183,8 @@ public class Admin extends JFrame {
 		
 		
 		JLabel lblEpisodios = new JLabel("Episodios");
+		lblEpisodios.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		lblEpisodios.setForeground(new Color(204, 204, 51));
 		lblEpisodios.setBounds(831, 320, 148, 20);
 		contentPane.add(lblEpisodios);
 		
@@ -239,6 +262,8 @@ public class Admin extends JFrame {
 		contentPane.add(comboBox);
 		
 		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1.setBackground(new Color(0, 0, 0));
+		comboBox_1.setForeground(new Color(204, 204, 51));
 		comboBox_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

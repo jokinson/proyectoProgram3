@@ -20,6 +20,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
 public class Login extends JFrame {
 
@@ -31,31 +34,51 @@ public class Login extends JFrame {
 	/*
 	 * Launch the application
 	 */
-
-
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Articulo a = null;
+					Login frame = new Login(a);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 	/**
 	 * Create the frame.
 	 */
 	public Login(Articulo articulo) {
 		this.a = articulo;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 686, 347);
+		setBounds(100, 100, 698, 495);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(87, 88, 422, 35);
+		textField.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		textField.setForeground(new Color(204, 204, 51));
+		textField.setBackground(new Color(51, 51, 51));
+		textField.setBounds(131, 141, 422, 35);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(87, 150, 422, 35);
+		passwordField.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		passwordField.setBackground(new Color(51, 51, 51));
+		passwordField.setForeground(new Color(204, 204, 51));
+		passwordField.setBounds(131, 228, 422, 35);
 		contentPane.add(passwordField);
 		
 		JButton btnIniciarSesin = new JButton("Iniciar Sesi\u00F3n");
+		btnIniciarSesin.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		btnIniciarSesin.setBackground(new Color(0, 0, 0));
+		btnIniciarSesin.setForeground(new Color(204, 204, 51));
 		btnIniciarSesin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -94,10 +117,13 @@ public class Login extends JFrame {
 				
 			}
 		});
-		btnIniciarSesin.setBounds(87, 214, 163, 29);
+		btnIniciarSesin.setBounds(147, 298, 163, 29);
 		contentPane.add(btnIniciarSesin);
 		
 		JButton btnNewButton = new JButton("Registrarse");
+		btnNewButton.setBackground(new Color(0, 0, 0));
+		btnNewButton.setForeground(new Color(204, 204, 51));
+		btnNewButton.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Registro registro = new Registro();
@@ -106,17 +132,41 @@ public class Login extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(290, 214, 163, 29);
+		btnNewButton.setBounds(361, 298, 163, 29);
 		contentPane.add(btnNewButton);
 		
-		JLabel lblNombreDeUsuario = new JLabel("Nombre de Usuario");
-		lblNombreDeUsuario.setForeground(Color.WHITE);
-		lblNombreDeUsuario.setBounds(87, 52, 206, 20);
+		JLabel lblNombreDeUsuario = new JLabel("Nombre de Usuario:");
+		lblNombreDeUsuario.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		lblNombreDeUsuario.setBackground(new Color(0, 0, 0));
+		lblNombreDeUsuario.setForeground(new Color(204, 204, 51));
+		lblNombreDeUsuario.setBounds(128, 105, 206, 20);
 		contentPane.add(lblNombreDeUsuario);
 		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setForeground(Color.WHITE);
-		lblContrasea.setBounds(87, 125, 163, 20);
+		JLabel lblContrasea = new JLabel("Contrase\u00F1a:");
+		lblContrasea.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		lblContrasea.setForeground(new Color(204, 204, 51));
+		lblContrasea.setBounds(130, 192, 163, 20);
 		contentPane.add(lblContrasea);
+		
+		JLabel lblKapitalfilms = new JLabel("KAPITAL-FILMS");
+		lblKapitalfilms.setForeground(new Color(204, 204, 51));
+		lblKapitalfilms.setFont(new Font("Mongolian Baiti", Font.BOLD | Font.ITALIC, 58));
+		lblKapitalfilms.setBackground(SystemColor.menu);
+		lblKapitalfilms.setBounds(105, 0, 558, 98);
+		contentPane.add(lblKapitalfilms);
+		
+		JLabel lblNewLabel = new JLabel("@KapitalFilms_");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo Insta.jpg"));
+		lblNewLabel.setForeground(new Color(204, 204, 51));
+		lblNewLabel.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel.setBounds(261, 350, 147, 20);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("@KapitalFilms_");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
+		lblNewLabel_1.setForeground(new Color(204, 204, 51));
+		lblNewLabel_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(261, 386, 147, 20);
+		contentPane.add(lblNewLabel_1);
 	}
 }
