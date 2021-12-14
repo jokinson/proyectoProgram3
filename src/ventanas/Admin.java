@@ -158,6 +158,8 @@ public class Admin extends JFrame {
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 		
+		JButton btnEliminarArticulo = new JButton("Eliminar Articulo");
+		
 		
 		JLabel lblEpisodios = new JLabel("Episodios");
 		lblEpisodios.setBounds(831, 320, 148, 20);
@@ -260,6 +262,8 @@ public class Admin extends JFrame {
 					btnNewButton.setVisible(false);
 					btnNewButton_1.setVisible(true);
 					comboBox.setVisible(false);
+					btnEliminarArticulo.setVisible(false);
+					
 					
 					
 					DefaultListModel<Usuario> usuarios = new DefaultListModel<Usuario>();
@@ -327,7 +331,7 @@ public class Admin extends JFrame {
 		btnNewButton_1.setBounds(506, 619, 288, 29);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnEliminarArticulo = new JButton("Eliminar Articulo");
+		
 		btnEliminarArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
