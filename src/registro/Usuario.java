@@ -159,9 +159,9 @@ public class Usuario {
 	}
 	@Override
 	public String toString() {
-		return "Usuario [codUsuario=" + codUsuario + ", nombreCompleto=" + nombreCompleto + ", edad=" + edad
-				+ ", nombreUsuario=" + nombreUsuario + ", contrasena=" + contrasena + ", esAdmin=" + esAdmin
-				+ ", saldo=" + saldo + "]";
+		return  codUsuario +", "+nombreCompleto +", " + edad
+				+ ", " + nombreUsuario + ", " + contrasena + ", " + esAdmin
+				+ ", " + saldo ;
 	}
 	
 	

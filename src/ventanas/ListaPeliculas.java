@@ -19,6 +19,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import java.awt.Font;
+import javax.swing.JLabel;
 
 public class ListaPeliculas extends JFrame {
 
@@ -41,6 +43,7 @@ public class ListaPeliculas extends JFrame {
 		contentPane.setLayout(null);
 		
 		JList list = new JList();
+		list.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
 		list.setBounds(40, 75, 272, 292);
 		
 		
@@ -89,6 +92,8 @@ public class ListaPeliculas extends JFrame {
 		});
 		btnAlquilar.setBounds(400, 371, 115, 29);
 		contentPane.add(btnAlquilar);
+		
+		
 		
 	
 		

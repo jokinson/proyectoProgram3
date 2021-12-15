@@ -21,6 +21,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JScrollPane;
 
 public class Buscador extends JFrame {
 
@@ -28,6 +30,7 @@ public class Buscador extends JFrame {
 	private JTextField textField;
 	private JButton btnAceptar;
 	private JButton btnCerrar;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -47,13 +50,14 @@ public class Buscador extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(209, 83, 280, 35);
+		textField.setBounds(189, 46, 300, 36);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JList list = new JList();
-		list.setBounds(209, 154, 280, 291);
-		contentPane.add(list);
+		list.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		list.setBounds(189, 113, 300, 332);
+		
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
 		ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
@@ -77,8 +81,13 @@ public class Buscador extends JFrame {
 				
 			}
 		});
+		
+		scrollPane = new JScrollPane();
+		scrollPane.setBounds(189, 113, 300, 332);
+		contentPane.add(scrollPane);
 		btnAceptar.setBounds(209, 474, 115, 29);
 		contentPane.add(btnAceptar);
+		scrollPane.setViewportView(list);
 		
 		btnCerrar = new JButton("Cerrar");
 		btnCerrar.addActionListener(new ActionListener() {
@@ -88,6 +97,8 @@ public class Buscador extends JFrame {
 		});
 		btnCerrar.setBounds(363, 474, 115, 29);
 		contentPane.add(btnCerrar);
+		
+		
 		
 		
 	textField.addKeyListener(new KeyAdapter() {

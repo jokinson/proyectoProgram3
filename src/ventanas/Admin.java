@@ -27,12 +27,16 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JScrollBar;
 import java.awt.event.AdjustmentListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.AdjustmentEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
 import java.awt.SystemColor;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 public class Admin extends JFrame {
 
@@ -45,6 +49,7 @@ public class Admin extends JFrame {
 	private JTextField textField_5;
 	private JTextField textField_6;
 	private JTextField textField_7;
+	private JTextField bTextF;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -75,9 +80,17 @@ public class Admin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JList list = new JList();
+		list.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				if (list.getSelectedValue()!=null){
+					JOptionPane.showMessageDialog(Admin.this, list.getSelectedValue());
+				}
+				
+			}
+		});
 		list.setForeground(new Color(0, 0, 0));
 		list.setBackground(new Color(255, 255, 255));
-		list.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		list.setFont(new Font("Mongolian Baiti", Font.PLAIN, 21));
 		list.setBounds(35, 130, 394, 518);
 		
 		
@@ -173,7 +186,7 @@ public class Admin extends JFrame {
 		contentPane.add(lblDuracion);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(35, 114, 404, 534);
+		scrollPane.setBounds(35, 161, 404, 487);
 		scrollPane.setViewportView(list);
 		contentPane.add(scrollPane);
 		
@@ -298,6 +311,7 @@ public class Admin extends JFrame {
 					textField_5.setVisible(false);
 					textField_6.setVisible(false);
 					textField_7.setVisible(false);
+					bTextF.setVisible(false);
 					lblCodigoDeArticulo.setVisible(false);
 					lblNombreDeArticulo.setVisible(false);
 					lblPrecioDeArticulo.setVisible(false);
@@ -396,6 +410,12 @@ public class Admin extends JFrame {
 		btnEliminarArticulo.setBounds(506, 548, 228, 43);
 		contentPane.add(btnEliminarArticulo);
 		
+		bTextF = new JTextField();
+		bTextF.setBounds(35, 98, 404, 43);
+		contentPane.add(bTextF);
+		bTextF.setColumns(10);
+		
+		
 		
 		
 		
@@ -444,6 +464,32 @@ public class Admin extends JFrame {
 				
 			}
 		});
+		
+		
+		
+		bTextF.addKeyListener(new KeyAdapter() {
+            
+            @Override
+            public void keyReleased(KeyEvent e) {//Se ejecuta cuando se libera una tecla
+                JTextField textField = (JTextField) e.getSource();
+                //obtiene contenido del textfield
+                String text = textField.getText();
+                if (text.trim().length() > 0) {
+                    //nuevo Model temporal
+                    DefaultListModel<Articulo> tmp = new DefaultListModel<Articulo>();
+                    for (int i = 0; i < model.getSize(); i++) {//recorre Model original
+                        //si encuentra coincidencias agrega a model temporal
+                        if (model.getElementAt(i).getNombreArticulo().toLowerCase().contains(text.toLowerCase())) {
+                            tmp.addElement(model.getElementAt(i));
+                        }
+                    }
+                    //agrega nuevo modelo a JList
+                    list.setModel(tmp);
+                } else {//si esta vacio muestra el Model original
+                    list.setModel(model);
+                }
+            }
+        });
 		
 		
 	}
