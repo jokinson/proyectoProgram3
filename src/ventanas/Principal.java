@@ -105,28 +105,28 @@ public class Principal extends JFrame {
 		});
 		btnNewButton.setForeground(new Color(204, 204, 51));
 		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setBounds(72, 130, 221, 46);
+		btnNewButton.setBounds(72, 130, 139, 46);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_3 = new JButton("ABOUT US");
 		btnNewButton_3.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_3.setForeground(new Color(204, 204, 51));
 		btnNewButton_3.setBackground(new Color(0, 0, 0));
-		btnNewButton_3.setBounds(777, 130, 174, 46);
+		btnNewButton_3.setBounds(841, 130, 174, 46);
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_1 = new JButton("SERIES");
 		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(204, 204, 51));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(308, 130, 221, 46);
+		btnNewButton_1.setBounds(216, 130, 147, 46);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DOCUMENTALES");
 		btnNewButton_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_2.setForeground(new Color(204, 204, 51));
 		btnNewButton_2.setBackground(new Color(0, 0, 0));
-		btnNewButton_2.setBounds(544, 130, 215, 46);
+		btnNewButton_2.setBounds(378, 130, 193, 46);
 		contentPane.add(btnNewButton_2);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -376,7 +376,10 @@ public class Principal extends JFrame {
 		lblNewLabel_1.setBounds(459, 919, 147, 20);
 		contentPane.add(lblNewLabel_1);
 		
-		JButton btnBuscadorDeArticulos = new JButton("Buscador de Articulos");
+		JButton btnBuscadorDeArticulos = new JButton("BUSCADOR DE ARTICULOS");
+		btnBuscadorDeArticulos.setBackground(new Color(0, 0, 0));
+		btnBuscadorDeArticulos.setForeground(new Color(204, 204, 51));
+		btnBuscadorDeArticulos.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
 		btnBuscadorDeArticulos.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -386,7 +389,7 @@ public class Principal extends JFrame {
 				
 			}
 		});
-		btnBuscadorDeArticulos.setBounds(777, 192, 215, 29);
+		btnBuscadorDeArticulos.setBounds(586, 131, 245, 46);
 		contentPane.add(btnBuscadorDeArticulos);
 	}
 }

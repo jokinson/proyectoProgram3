@@ -20,6 +20,7 @@ import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class Buscador extends JFrame {
 
@@ -38,19 +39,20 @@ public class Buscador extends JFrame {
 	 */
 	public Buscador(Usuario u , Principal p) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 357, 548);
+		setBounds(100, 100, 724, 591);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(26, 28, 280, 35);
+		textField.setBounds(209, 83, 280, 35);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		JList list = new JList();
-		list.setBounds(26, 102, 280, 291);
+		list.setBounds(209, 154, 280, 291);
 		contentPane.add(list);
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
@@ -75,7 +77,7 @@ public class Buscador extends JFrame {
 				
 			}
 		});
-		btnAceptar.setBounds(26, 433, 115, 29);
+		btnAceptar.setBounds(209, 474, 115, 29);
 		contentPane.add(btnAceptar);
 		
 		btnCerrar = new JButton("Cerrar");
@@ -84,7 +86,7 @@ public class Buscador extends JFrame {
 				dispose();
 			}
 		});
-		btnCerrar.setBounds(176, 433, 115, 29);
+		btnCerrar.setBounds(363, 474, 115, 29);
 		contentPane.add(btnCerrar);
 		
 		

@@ -30,23 +30,6 @@ public class Login extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField;
 	Articulo a;
-	
-	/*
-	 * Launch the application
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Articulo a = null;
-					Login frame = new Login(a);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 	/**
 	 * Create the frame.
 	 */

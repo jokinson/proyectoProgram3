@@ -32,6 +32,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import java.awt.Color;
+import java.awt.SystemColor;
 
 public class Admin extends JFrame {
 
@@ -74,7 +75,9 @@ public class Admin extends JFrame {
 		contentPane.setLayout(null);
 		
 		JList list = new JList();
-		list.setFont(new Font("Arial", Font.PLAIN, 19));
+		list.setForeground(new Color(0, 0, 0));
+		list.setBackground(new Color(255, 255, 255));
+		list.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
 		list.setBounds(35, 130, 394, 518);
 		
 		
@@ -88,17 +91,21 @@ public class Admin extends JFrame {
 		list.setModel(model);
 		
 		JButton btnNewButton = new JButton("Anadir Articulo");
+		btnNewButton.setForeground(new Color(204, 204, 51));
+		btnNewButton.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		btnNewButton.setBackground(SystemColor.desktop);
 		
 		btnNewButton.setBounds(654, 449, 272, 43);
 		contentPane.add(btnNewButton);
 		
 		textField = new JTextField();
-		textField.setBackground(new Color(102, 102, 102));
+		textField.setBackground(new Color(255, 255, 255));
 		textField.setBounds(506, 63, 272, 43);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
+		textField_1.setBackground(new Color(255, 255, 255));
 		textField_1.setBounds(506, 161, 272, 43);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
@@ -117,6 +124,7 @@ public class Admin extends JFrame {
 		contentPane.add(lblNombreDeArticulo);
 		
 		textField_2 = new JTextField();
+		textField_2.setBackground(new Color(255, 255, 255));
 		textField_2.setBounds(506, 261, 272, 43);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
@@ -128,6 +136,7 @@ public class Admin extends JFrame {
 		contentPane.add(lblPrecioDeArticulo);
 		
 		textField_3 = new JTextField();
+		textField_3.setBackground(new Color(255, 255, 255));
 		textField_3.setBounds(506, 354, 272, 43);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
@@ -140,6 +149,7 @@ public class Admin extends JFrame {
 		contentPane.add(lblDescripcion);
 		
 		textField_4 = new JTextField();
+		textField_4.setBackground(new Color(255, 255, 255));
 		textField_4.setBounds(831, 61, 272, 47);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
@@ -151,6 +161,7 @@ public class Admin extends JFrame {
 		contentPane.add(lblCategoria);
 		
 		textField_5 = new JTextField();
+		textField_5.setBackground(new Color(255, 255, 255));
 		textField_5.setBounds(831, 161, 272, 43);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
@@ -175,11 +186,15 @@ public class Admin extends JFrame {
 		contentPane.add(lblTemporadas);
 		
 		textField_6 = new JTextField();
+		textField_6.setBackground(new Color(255, 255, 255));
 		textField_6.setBounds(831, 261, 272, 43);
 		contentPane.add(textField_6);
 		textField_6.setColumns(10);
 		
 		JButton btnEliminarArticulo = new JButton("Eliminar Articulo");
+		btnEliminarArticulo.setBackground(new Color(0, 0, 0));
+		btnEliminarArticulo.setForeground(new Color(204, 204, 51));
+		btnEliminarArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		
 		
 		JLabel lblEpisodios = new JLabel("Episodios");
@@ -189,6 +204,7 @@ public class Admin extends JFrame {
 		contentPane.add(lblEpisodios);
 		
 		textField_7 = new JTextField();
+		textField_7.setBackground(new Color(255, 255, 255));
 		textField_7.setBounds(831, 354, 272, 43);
 		contentPane.add(textField_7);
 		textField_7.setColumns(10);
@@ -198,9 +214,15 @@ public class Admin extends JFrame {
 		textField_7.setVisible(false);
 		
 		JButton btnNewButton_1 = new JButton("Eliminar Usuario");
+		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
+		btnNewButton_1.setForeground(new Color(204, 204, 51));
+		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setVisible(false);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(0, 0, 0));
+		comboBox.setForeground(new Color(204, 204, 51));
+		comboBox.setFont(new Font("Mongolian Baiti", Font.PLAIN, 17));
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem().toString()=="Serie"){
@@ -353,7 +375,7 @@ public class Admin extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(506, 619, 288, 29);
+		btnNewButton_1.setBounds(506, 605, 228, 43);
 		contentPane.add(btnNewButton_1);
 		
 		
@@ -371,7 +393,7 @@ public class Admin extends JFrame {
 				list.setModel(articulos);
 			}
 		});
-		btnEliminarArticulo.setBounds(506, 574, 288, 29);
+		btnEliminarArticulo.setBounds(506, 548, 228, 43);
 		contentPane.add(btnEliminarArticulo);
 		
 		
