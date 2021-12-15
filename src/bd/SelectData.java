@@ -526,7 +526,56 @@ public class SelectData
     	
     }
 
-    public static int selectTendenciasArticulo(Articulo a){
+    public static int[] selectTendenciaArticulo(Articulo a){
+    	int[] tendencias = new int[2];
+    	int i = 0;
+    	String sql = "SELECT codigoArticulo, vecesComprada FROM Tendencias";
+
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql)
+                )
+        {
+
+            // loop through the result set
+            while (rs.next())
+            {
+            	if(rs.getInt("codigoArticulo") == a.getCodigoArticulo()){
+            		
+            		tendencias[0]=rs.getInt("codigoArticulo");
+            		tendencias[1]=rs.getInt("vecesComprada");
+            		
+            		
+            		}
+            
+            		
+            		
+            	}
+                
+            
+            
+        } catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
+		return tendencias;
+    	
+    }    
+   
+public static ArrayList<Articulo> selectTendenciasArticulo(){
+    	ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
+    	
+    	int[][] tendencias ;
+    	int num = 0;
+    	for ( Articulo a : articulos){
+    		int [] t = bd.SelectData.selectTendenciaArticulo(a);
+    		tendencias[num][0]= t[0];
+    		tendencias[num][1] =t[1];
+    		num=num +1;
+    		
+    	}
     	
     	int i = 0;
     	String sql = "SELECT codigoArticulo, vecesComprada FROM Tendencias";

@@ -19,7 +19,10 @@ public class ProgramaPrincipal {
 		ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
 		
 		
-		
+		for(Articulo a: articulos){
+			int t = bd.SelectData.selectTendenciasArticulo(a);
+			System.out.println(t);
+		}
 		
 		
 
