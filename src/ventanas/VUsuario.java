@@ -36,34 +36,44 @@ public class VUsuario extends JFrame {
 	public VUsuario(Usuario u) {
 		setTitle("Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 787, 533);
+		setBounds(100, 100, 845, 577);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblNombreUsuario = new JLabel("Nombre Usuario:");
-		lblNombreUsuario.setBounds(201, 52, 162, 20);
+		lblNombreUsuario.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		lblNombreUsuario.setForeground(new Color(204, 204, 51));
+		lblNombreUsuario.setBounds(179, 42, 162, 20);
 		contentPane.add(lblNombreUsuario);
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\usuario1.png"));
-		label.setBounds(15, 16, 206, 137);
+		label.setBounds(0, 405, 206, 137);
 		contentPane.add(label);
 		
 		JList list = new JList();
-		list.setBounds(422, 78, 304, 315);
+		list.setBounds(478, 78, 304, 315);
 		contentPane.add(list);
 		
 		JLabel lblPeliculasDeUsuario = new JLabel("Articulos de Usuario");
-		lblPeliculasDeUsuario.setBounds(487, 42, 162, 20);
+		lblPeliculasDeUsuario.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		lblPeliculasDeUsuario.setForeground(new Color(204, 204, 51));
+		lblPeliculasDeUsuario.setBounds(541, 42, 173, 20);
 		contentPane.add(lblPeliculasDeUsuario);
 		
 		JLabel lblNewLabel = new JLabel("Saldo:");
-		lblNewLabel.setBounds(65, 200, 69, 20);
+		lblNewLabel.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		lblNewLabel.setForeground(new Color(204, 204, 51));
+		lblNewLabel.setBounds(174, 216, 69, 20);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnDevolverArticulo = new JButton("Devolver Articulo");
+		btnDevolverArticulo.setBackground(new Color(0, 0, 0));
+		btnDevolverArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		btnDevolverArticulo.setForeground(new Color(204, 204, 51));
 		btnDevolverArticulo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -81,11 +91,13 @@ public class VUsuario extends JFrame {
 				
 			}
 		});
-		btnDevolverArticulo.setBounds(457, 416, 240, 29);
+		btnDevolverArticulo.setBounds(501, 416, 240, 29);
 		contentPane.add(btnDevolverArticulo);
 		
 		JButton btnAgregarSaldo = new JButton("Agregar Saldo");
-		btnAgregarSaldo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnAgregarSaldo.setBackground(new Color(0, 0, 0));
+		btnAgregarSaldo.setForeground(new Color(204, 204, 51));
+		btnAgregarSaldo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		btnAgregarSaldo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -96,10 +108,13 @@ public class VUsuario extends JFrame {
 				
 			}
 		});
-		btnAgregarSaldo.setBounds(65, 312, 240, 29);
+		btnAgregarSaldo.setBounds(179, 295, 240, 29);
 		contentPane.add(btnAgregarSaldo);
 		
 		JButton btnVolver = new JButton("Volver ");
+		btnVolver.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		btnVolver.setForeground(new Color(204, 204, 51));
+		btnVolver.setBackground(new Color(0, 0, 0));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Principal p = new Principal(u);
@@ -107,7 +122,7 @@ public class VUsuario extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(15, 416, 240, 29);
+		btnVolver.setBounds(501, 461, 240, 29);
 		contentPane.add(btnVolver);
 		
 		
@@ -121,14 +136,46 @@ public class VUsuario extends JFrame {
 		list.setModel(model);
 		
 		JLabel lblLaTuki = new JLabel(u.getNombreUsuario()+"");
+		lblLaTuki.setForeground(new Color(204, 204, 51));
 		lblLaTuki.setBackground(new Color(240, 240, 240));
 		lblLaTuki.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblLaTuki.setBounds(201, 101, 173, 29);
+		lblLaTuki.setBounds(208, 78, 206, 56);
 		contentPane.add(lblLaTuki);
 		
 		JLabel lblTuki = new JLabel(u.getSaldo()+"");
-		lblTuki.setFont(new Font("Tahoma", Font.PLAIN, 35));
-		lblTuki.setBounds(65, 238, 240, 38);
+		lblTuki.setForeground(new Color(204, 204, 51));
+		lblTuki.setFont(new Font("Mongolian Baiti", Font.PLAIN, 35));
+		lblTuki.setBounds(179, 252, 240, 38);
 		contentPane.add(lblTuki);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\logo.PNG"));
+		lblNewLabel_1.setBounds(0, 367, 187, 154);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("@");
+		lblNewLabel_2_1.setForeground(new Color(204, 204, 51));
+		lblNewLabel_2_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 30));
+		lblNewLabel_2_1.setBounds(179, 88, 38, 44);
+		contentPane.add(lblNewLabel_2_1);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\usuario1.png"));
+		btnNewButton.setBounds(15, 29, 139, 121);
+		contentPane.add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("@KapitalFilms_");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo Insta.jpg"));
+		lblNewLabel_2.setForeground(new Color(204, 204, 51));
+		lblNewLabel_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(232, 418, 147, 20);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("@KapitalFilms_");
+		lblNewLabel_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
+		lblNewLabel_1_1.setForeground(new Color(204, 204, 51));
+		lblNewLabel_1_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel_1_1.setBounds(232, 454, 147, 20);
+		contentPane.add(lblNewLabel_1_1);
 	}
 }

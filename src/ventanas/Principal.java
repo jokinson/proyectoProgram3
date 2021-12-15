@@ -105,7 +105,7 @@ public class Principal extends JFrame {
 		});
 		btnNewButton.setForeground(new Color(204, 204, 51));
 		btnNewButton.setBackground(Color.BLACK);
-		btnNewButton.setBounds(69, 112, 139, 46);
+		btnNewButton.setBounds(69, 112, 174, 46);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_3 = new JButton("ABOUT US");
@@ -119,14 +119,14 @@ public class Principal extends JFrame {
 		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(204, 204, 51));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
-		btnNewButton_1.setBounds(216, 112, 147, 46);
+		btnNewButton_1.setBounds(249, 112, 138, 46);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("DOCUMENTALES");
-		btnNewButton_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		btnNewButton_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		btnNewButton_2.setForeground(new Color(204, 204, 51));
 		btnNewButton_2.setBackground(new Color(0, 0, 0));
-		btnNewButton_2.setBounds(378, 112, 193, 46);
+		btnNewButton_2.setBounds(392, 112, 193, 46);
 		contentPane.add(btnNewButton_2);
 		
 		JDesktopPane desktopPane = new JDesktopPane();
@@ -389,11 +389,11 @@ public class Principal extends JFrame {
 				
 			}
 		});
-		btnBuscadorDeArticulos.setBounds(586, 113, 245, 46);
+		btnBuscadorDeArticulos.setBounds(590, 112, 254, 46);
 		contentPane.add(btnBuscadorDeArticulos);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\logo.PNG"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\logo.PNG"));
 		lblNewLabel_2.setBounds(290, 837, 193, 98);
 		contentPane.add(lblNewLabel_2);
 	}

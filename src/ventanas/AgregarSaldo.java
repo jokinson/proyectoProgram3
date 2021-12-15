@@ -125,7 +125,7 @@ public class AgregarSaldo extends JFrame {
 		contentPane.add(lblNewLabel_2_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("");
-		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\logo.PNG"));
+		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\logo.PNG"));
 		lblNewLabel_3.setBounds(0, 245, 195, 114);
 		contentPane.add(lblNewLabel_3);
 		
