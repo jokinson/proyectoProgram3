@@ -2,6 +2,7 @@ package bd;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -564,52 +565,51 @@ public class SelectData
     	
     }    
    
-public static ArrayList<Articulo> selectTendenciasArticulo(){
+    public static ArrayList<Articulo> selectTendenciasArticulo1(){
     	ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
-    	
-    	int[][] tendencias ;
+    	ArrayList<Articulo> artOrdenados = new ArrayList<Articulo>();
+    	int[][] tendencias = new int[articulos.size()][2] ;
     	int num = 0;
+    	int num1=0;
     	for ( Articulo a : articulos){
     		int [] t = bd.SelectData.selectTendenciaArticulo(a);
     		tendencias[num][0]= t[0];
     		tendencias[num][1] =t[1];
-    		num=num +1;
-    		
+    		num=num +1;	
     	}
+    	// Realizo un bubble sort 
+	    int n = tendencias.length;
+	    for (int i = 0; i < n-1; i++){
+            for (int j = 0; j < n-i-1; j++){
+                if (tendencias[j][1] > tendencias[j+1][1]){
+                    int tem= tendencias[j][0];
+                	int temp = tendencias[j][1];
+                	tendencias[j][0] = tendencias[j+1][0];
+                    tendencias[j][1] = tendencias[j+1][1];
+                    tendencias[j+1][0] = tem;
+                    tendencias[j+1][1] = temp;
+                }
+            }}
+	    int[] arraybueno= new int[tendencias.length];
+	    
+	    for (int a = 0; a < tendencias.length; a++){
+	    	arraybueno[a]= tendencias[tendencias.length-a-1][0];	
+	    }
+	    for(int i=0; i<arraybueno.length;i++){
+	    	for(Articulo a : articulos){
+	    		if(arraybueno[i] == a.getCodigoArticulo()){
+	    			artOrdenados.add(a);
+	    		}
+	    	}
+	    }
+		
+	    
+	    
+	    
+	    return artOrdenados;
+	    }
     	
-    	int i = 0;
-    	String sql = "SELECT codigoArticulo, vecesComprada FROM Tendencias";
 
-        try
-                (
-                        Connection conn = connect();
-                        Statement stmt  = conn.createStatement();
-                        ResultSet rs    = stmt.executeQuery(sql)
-                )
-        {
-
-            // loop through the result set
-            while (rs.next())
-            {
-            	if(rs.getInt("codigoArticulo") == a.getCodigoArticulo()){
-            		
-            		i = rs.getInt("vecesComprada");
-            		
-            		}
-            
-            		
-            		
-            	}
-                
-            
-            
-        } catch (SQLException e)
-        {
-            System.out.println(e.getMessage());
-        }
-		return i;
-    	
-    }    
 
 		
     	

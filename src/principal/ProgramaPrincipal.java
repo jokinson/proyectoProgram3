@@ -16,14 +16,13 @@ public class ProgramaPrincipal {
 		
 		
 		
-		ArrayList<Articulo> articulos = bd.SelectData.selectArticulosDeArticulos();
+		ArrayList<Articulo> articulos = bd.SelectData.selectTendenciasArticulo1();
+		
 		
 		
 		for(Articulo a: articulos){
-			int t = bd.SelectData.selectTendenciasArticulo(a);
-			System.out.println(t);
+			System.out.println(a.getNombreArticulo());
 		}
-		
 		
 
 	
