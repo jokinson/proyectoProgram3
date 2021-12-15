@@ -53,7 +53,7 @@ public class ArticuloEspecifico extends JFrame {
 					log.setVisible(true);
 					dispose();
 				}else{
-					Factura f = new Factura (u, p);
+					Factura f = new Factura (u, p, ArticuloEspecifico.this);
 					f.setVisible(true);
 					
 				}

@@ -28,7 +28,7 @@ public class Factura extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Factura(Usuario u, Articulo a) {
+	public Factura(Usuario u, Articulo a,ArticuloEspecifico art) {
 		setTitle("Factura");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 376, 380);
@@ -70,14 +70,22 @@ public class Factura extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(nuevoSaldo>=0){
+					u.setSaldo(nuevoSaldo);
+					Usuario usuarioNuevo = new Usuario(u.getCodUsuario(), u.getNombreCompleto(), u.getEdad(), u.getNombreUsuario(),u.getContrasena(),u.getSaldo(),u.getEsAdmin());
+					bd.SelectData.insertUsuarioNuevo(usuarioNuevo);
+					bd.SelectData.insertPeliculaUsuario(u, a);
+					
+					JOptionPane.showMessageDialog(Factura.this, "Gracias por la compra!");
+					dispose();
+				}else{
+					JOptionPane.showMessageDialog(Factura.this, "No dispones de suficiente saldo");
+					VUsuario vu = new VUsuario(u);
+					vu.setVisible(true);
+					art.dispose();
+					dispose();
+				}
 				
-				u.setSaldo(nuevoSaldo);
-				Usuario usuarioNuevo = new Usuario(u.getCodUsuario(), u.getNombreCompleto(), u.getEdad(), u.getNombreUsuario(),u.getContrasena(),u.getSaldo(),u.getEsAdmin());
-				bd.SelectData.insertUsuarioNuevo(usuarioNuevo);
-				bd.SelectData.insertPeliculaUsuario(u, a);
-				
-				JOptionPane.showMessageDialog(Factura.this, "Gracias por la compra!");
-				dispose();
 				
 				
 			}
