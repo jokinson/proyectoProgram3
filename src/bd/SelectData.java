@@ -643,10 +643,33 @@ public static void actualizarSaldo(Usuario u, double saldoNuevo){
         }
     	
     }
-    
-    
-    
-    
+
+public static void incrementarTendencia(Articulo a, int nuevaTendencia){
+	
+	int[] articulo = bd.SelectData.selectTendenciaArticulo(a);
+	
+	String sql1 = "INSERT INTO Tendencias(vecesComprada) VALUES(?) WHERE codigoArticulo = ?";
+
+    try
+            (
+                    Connection conn = connect();
+                    PreparedStatement pstmt = conn.prepareStatement(sql1)
+            )
+    {
+        if (a.getCodigoArticulo()== articulo[0]){
+        	pstmt.setInt(1, nuevaTendencia);
+        	pstmt.setInt(2, a.getCodigoArticulo());
+        	pstmt.executeUpdate();
+        }
+   
+       
+    }
+    catch (SQLException e)
+    {
+        System.out.println(e.getMessage());
+    }
+	
+}
     
 
 
