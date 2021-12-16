@@ -31,7 +31,7 @@ public class AgregarSaldo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AgregarSaldo(Usuario u) {
+	public AgregarSaldo(Usuario u, VUsuario v) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 447, 419);
 		contentPane = new JPanel();
@@ -65,6 +65,7 @@ public class AgregarSaldo extends JFrame {
 				u.setSaldo(nuevoSaldo);
 				Usuario usuarioNuevo = new Usuario(u.getCodUsuario(), u.getNombreCompleto(), u.getEdad(), u.getNombreUsuario(),u.getContrasena(),u.getSaldo(),u.getEsAdmin());
 				bd.SelectData.insertUsuarioNuevo(usuarioNuevo);
+				v.dispose();
 				VUsuario vu = new VUsuario(u);
 				vu.setVisible(true);
 				dispose();
@@ -80,8 +81,9 @@ public class AgregarSaldo extends JFrame {
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				dispose();
 				
+				
+				dispose();
 			}
 		});
 		btnVolver.setBounds(195, 180, 115, 29);

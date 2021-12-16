@@ -101,9 +101,9 @@ public class VUsuario extends JFrame {
 		btnAgregarSaldo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AgregarSaldo ag = new AgregarSaldo(u);
+				AgregarSaldo ag = new AgregarSaldo(u, VUsuario.this);
 				ag.setVisible(true);
-				dispose();
+				
 
 				
 			}

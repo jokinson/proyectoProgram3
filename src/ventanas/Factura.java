@@ -76,9 +76,12 @@ public class Factura extends JFrame {
 					bd.SelectData.insertUsuarioNuevo(usuarioNuevo);
 					bd.SelectData.insertPeliculaUsuario(u, a);
 					
-					bd.SelectData.incrementarTendencia(a, 20);
+					bd.SelectData.incrementarTendencia(a);
 					
 					JOptionPane.showMessageDialog(Factura.this, "Gracias por la compra!");
+					art.dispose();
+					ArticuloEspecifico artE = new ArticuloEspecifico (a,u);
+					artE.setVisible(true);
 					dispose();
 				}else{
 					JOptionPane.showMessageDialog(Factura.this, "No dispones de suficiente saldo");

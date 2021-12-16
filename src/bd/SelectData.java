@@ -644,11 +644,34 @@ public static void actualizarSaldo(Usuario u, double saldoNuevo){
     	
     }
 
-public static void incrementarTendencia(Articulo a, int nuevaTendencia){
-	
+public static void incrementarTendencia(Articulo a){
 	int[] articulo = bd.SelectData.selectTendenciaArticulo(a);
 	
-	String sql1 = "INSERT INTO Tendencias(vecesComprada) VALUES(?) WHERE codigoArticulo = ?";
+	String sql = "DELETE FROM Tendencias WHERE codigoArticulo = ?";
+
+    try
+            (
+                    Connection conn = connect();
+                    PreparedStatement pstmt = conn.prepareStatement(sql)
+            )
+    {
+
+        // set the corresponding param
+        pstmt.setInt(1, a.getCodigoArticulo());
+
+        // execute the delete statement
+        pstmt.executeUpdate();
+
+    }
+    catch (SQLException e)
+    {
+        System.out.println(e.getMessage());
+    }
+	
+	
+	
+	
+	String sql1 = "INSERT INTO Tendencias(codigoArticulo, vecesComprada) VALUES(?,?) ";
 
     try
             (
@@ -656,11 +679,12 @@ public static void incrementarTendencia(Articulo a, int nuevaTendencia){
                     PreparedStatement pstmt = conn.prepareStatement(sql1)
             )
     {
-        if (a.getCodigoArticulo()== articulo[0]){
-        	pstmt.setInt(1, nuevaTendencia);
-        	pstmt.setInt(2, a.getCodigoArticulo());
-        	pstmt.executeUpdate();
-        }
+    	
+        
+       	pstmt.setInt(1, articulo[0]);
+       	pstmt.setInt(2, articulo[1]+1);
+       	pstmt.executeUpdate();
+        
    
        
     }
