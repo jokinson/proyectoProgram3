@@ -23,6 +23,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JScrollPane;
+import javax.swing.ImageIcon;
+import java.awt.SystemColor;
 
 public class Buscador extends JFrame {
 
@@ -31,6 +33,10 @@ public class Buscador extends JFrame {
 	private JButton btnAceptar;
 	private JButton btnCerrar;
 	private JScrollPane scrollPane;
+	private JLabel lblNewLabel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblNewLabel_2;
+	private JLabel lblKapitalfilms;
 
 	/**
 	 * Launch the application.
@@ -42,7 +48,7 @@ public class Buscador extends JFrame {
 	 */
 	public Buscador(Usuario u , Principal p) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 724, 591);
+		setBounds(100, 100, 724, 776);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,7 +56,7 @@ public class Buscador extends JFrame {
 		contentPane.setLayout(null);
 		
 		textField = new JTextField();
-		textField.setBounds(189, 46, 300, 36);
+		textField.setBounds(146, 134, 376, 36);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
@@ -66,7 +72,10 @@ public class Buscador extends JFrame {
 		}
 		list.setModel(model);
 		
-		btnAceptar = new JButton("Aceptar");
+		btnAceptar = new JButton("ACEPTAR");
+		btnAceptar.setBackground(new Color(0, 0, 0));
+		btnAceptar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		btnAceptar.setForeground(new Color(204, 204, 51));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -83,20 +92,48 @@ public class Buscador extends JFrame {
 		});
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(189, 113, 300, 332);
+		scrollPane.setBounds(146, 200, 376, 332);
 		contentPane.add(scrollPane);
-		btnAceptar.setBounds(209, 474, 115, 29);
+		btnAceptar.setBounds(146, 561, 178, 29);
 		contentPane.add(btnAceptar);
 		scrollPane.setViewportView(list);
 		
-		btnCerrar = new JButton("Cerrar");
+		btnCerrar = new JButton("CERRAR");
+		btnCerrar.setForeground(new Color(204, 204, 51));
+		btnCerrar.setBackground(new Color(0, 0, 0));
 		btnCerrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
 			}
 		});
-		btnCerrar.setBounds(363, 474, 115, 29);
+		btnCerrar.setBounds(363, 561, 159, 29);
 		contentPane.add(btnCerrar);
+		
+		lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\logo.PNG"));
+		lblNewLabel.setBounds(158, 606, 193, 98);
+		contentPane.add(lblNewLabel);
+		
+		lblNewLabel_1 = new JLabel("@KapitalFilms_");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo Insta.jpg"));
+		lblNewLabel_1.setForeground(new Color(204, 204, 51));
+		lblNewLabel_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(391, 627, 147, 20);
+		contentPane.add(lblNewLabel_1);
+		
+		lblNewLabel_2 = new JLabel("@KapitalFilms_");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
+		lblNewLabel_2.setForeground(new Color(204, 204, 51));
+		lblNewLabel_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel_2.setBounds(391, 663, 147, 20);
+		contentPane.add(lblNewLabel_2);
+		
+		lblKapitalfilms = new JLabel("KAPITAL-FILMS");
+		lblKapitalfilms.setForeground(new Color(204, 204, 51));
+		lblKapitalfilms.setFont(new Font("Mongolian Baiti", Font.BOLD | Font.ITALIC, 58));
+		lblKapitalfilms.setBackground(SystemColor.menu);
+		lblKapitalfilms.setBounds(96, 20, 558, 98);
+		contentPane.add(lblKapitalfilms);
 		
 		
 		

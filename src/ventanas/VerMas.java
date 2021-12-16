@@ -22,6 +22,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.SystemColor;
+import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
 
 public class VerMas extends JFrame {
 
@@ -35,18 +40,22 @@ public class VerMas extends JFrame {
 	 */
 	public VerMas(Usuario u) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 815, 643);
+		setBounds(100, 100, 815, 798);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 0, 0));
+		contentPane.setForeground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JList list = new JList();
-		list.setBounds(68, 111, 391, 446);
-		contentPane.add(list);
+		list.setBounds(66, 182, 391, 446);
+		
 		
 		JLabel lblTopTendencias = new JLabel("TOP TENDENCIAS");
-		lblTopTendencias.setBounds(68, 16, 213, 35);
+		lblTopTendencias.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		lblTopTendencias.setForeground(new Color(204, 204, 51));
+		lblTopTendencias.setBounds(66, 131, 213, 35);
 		contentPane.add(lblTopTendencias);
 		
 		DefaultListModel<Articulo> model = new DefaultListModel<Articulo>();
@@ -56,7 +65,10 @@ public class VerMas extends JFrame {
 		}
 		list.setModel(model);
 		
-		JButton btnAceptar = new JButton("Aceptar");
+		JButton btnAceptar = new JButton("ACEPTAR");
+		btnAceptar.setBackground(new Color(0, 0, 0));
+		btnAceptar.setForeground(new Color(204, 204, 51));
+		btnAceptar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Articulo a = (Articulo) list.getSelectedValue();
@@ -66,10 +78,13 @@ public class VerMas extends JFrame {
 				
 			}
 		});
-		btnAceptar.setBounds(522, 476, 206, 29);
+		btnAceptar.setBounds(66, 664, 179, 35);
 		contentPane.add(btnAceptar);
 		
-		JButton btnVolver = new JButton("Volver");
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.setBackground(new Color(0, 0, 0));
+		btnVolver.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		btnVolver.setForeground(new Color(204, 204, 51));
 		btnVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Principal p = new Principal(u);
@@ -77,13 +92,48 @@ public class VerMas extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(522, 521, 206, 35);
+		btnVolver.setBounds(287, 664, 170, 35);
 		contentPane.add(btnVolver);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setBackground(new Color(0, 0, 0));
+		comboBox.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		comboBox.setForeground(new Color(204, 204, 51));
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Tendencias", "Peliculas", "Series", "Documentales"}));
-		comboBox.setBounds(522, 50, 213, 35);
+		comboBox.setBounds(522, 199, 213, 35);
 		contentPane.add(comboBox);
+		
+		JLabel lblKapitalfilms = new JLabel("KAPITAL-FILMS");
+		lblKapitalfilms.setForeground(new Color(204, 204, 51));
+		lblKapitalfilms.setFont(new Font("Mongolian Baiti", Font.BOLD | Font.ITALIC, 58));
+		lblKapitalfilms.setBackground(SystemColor.menu);
+		lblKapitalfilms.setBounds(135, 17, 558, 98);
+		contentPane.add(lblKapitalfilms);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\logo.PNG"));
+		lblNewLabel_2.setBounds(542, 468, 193, 98);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel = new JLabel("@KapitalFilms_");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo Insta.jpg"));
+		lblNewLabel.setForeground(new Color(204, 204, 51));
+		lblNewLabel.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel.setBounds(579, 582, 147, 20);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("@KapitalFilms_");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
+		lblNewLabel_1.setForeground(new Color(204, 204, 51));
+		lblNewLabel_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(579, 618, 147, 20);
+		contentPane.add(lblNewLabel_1);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(66, 182, 391, 446);
+		contentPane.add(scrollPane);
+
+		scrollPane.setViewportView(list);
 		comboBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(comboBox.getSelectedItem() == "Tendencias"){
