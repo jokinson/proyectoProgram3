@@ -92,13 +92,15 @@ public class Principal extends JFrame {
 		lblKapitalfilms.setFont(new Font("Mongolian Baiti", Font.BOLD | Font.ITALIC, 58));
 		lblKapitalfilms.setBounds(239, 16, 558, 98);
 		contentPane.add(lblKapitalfilms);
-		
-		JButton btnNewButton = new JButton("PELICULAS");
+		String n = "PELICULAS";
+		String n1 = "SERIES";
+		String n2 = "DOCUMENTALES";
+		JButton btnNewButton = new JButton(n);
 		btnNewButton.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 	
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ListaPeliculas l = new ListaPeliculas(usuario);
+				ListaPeliculas l = new ListaPeliculas(usuario, n);
 				l.setVisible(true);
 				dispose();
 			}
@@ -115,14 +117,28 @@ public class Principal extends JFrame {
 		btnNewButton_3.setBounds(846, 112, 174, 46);
 		contentPane.add(btnNewButton_3);
 		
-		JButton btnNewButton_1 = new JButton("SERIES");
+		JButton btnNewButton_1 = new JButton(n1);
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListaPeliculas l = new ListaPeliculas(usuario, n1);
+				l.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(204, 204, 51));
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setBounds(249, 112, 138, 46);
 		contentPane.add(btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("DOCUMENTALES");
+		JButton btnNewButton_2 = new JButton(n2);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ListaPeliculas l = new ListaPeliculas(usuario, n2);
+				l.setVisible(true);
+				dispose();
+			}
+		});
 		btnNewButton_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		btnNewButton_2.setForeground(new Color(204, 204, 51));
 		btnNewButton_2.setBackground(new Color(0, 0, 0));

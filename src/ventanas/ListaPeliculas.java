@@ -8,7 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import objetos.Articulo;
+import objetos.Documental;
 import objetos.Pelicula;
+import objetos.Serie;
 import registro.Usuario;
 
 import javax.swing.DefaultListModel;
@@ -37,7 +39,7 @@ public class ListaPeliculas extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ListaPeliculas(Usuario u) {
+	public ListaPeliculas(Usuario u, String nombre) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 762, 624);
 		contentPane = new JPanel();
@@ -55,13 +57,32 @@ public class ListaPeliculas extends JFrame {
 		scrollPane.setBounds(227, 154, 271, 292);
 		contentPane.add(scrollPane);
 		scrollPane.setViewportView(list);
-		
-		DefaultListModel<String> peliculas = new DefaultListModel<String>();
-		ArrayList<Pelicula> pe = bd.SelectData.selectPelicula();
-		for(Pelicula p : pe){
-			peliculas.addElement(p.getNombreArticulo());
+		if(nombre == "PELICULAS"){
+			DefaultListModel<String> peliculas = new DefaultListModel<String>();
+			ArrayList<Pelicula> pe = bd.SelectData.selectPelicula();
+			for(Pelicula p : pe){
+				peliculas.addElement(p.getNombreArticulo());
+			}
+			list.setModel(peliculas);
+			
 		}
-		list.setModel(peliculas);
+		if(nombre == "SERIES"){
+			DefaultListModel<String> series = new DefaultListModel<String>();
+			ArrayList<Serie> se = bd.SelectData.selectSerie();
+			for(Serie p : se){
+				series.addElement(p.getNombreArticulo());
+			}
+			list.setModel(series);
+		}
+		if(nombre == "DOCUMENTALES"){
+			DefaultListModel<String> documentales = new DefaultListModel<String>();
+			ArrayList<Documental> de = bd.SelectData.selectDocumental();
+			for(Documental p : de){
+				documentales.addElement(p.getNombreArticulo());
+			}
+			list.setModel(documentales);
+		}
+		
 		
 		JButton btnAlquilar = new JButton("ALQUILAR");
 		btnAlquilar.setBackground(new Color(0, 0, 0));
@@ -84,15 +105,45 @@ public class ListaPeliculas extends JFrame {
 					
 					dispose();
 				}else{
-					Pelicula peli = null;
-					for (Pelicula pp : pe){
-						if(pp.getNombreArticulo().equals(list.getSelectedValue())){
-							peli = pp;
+					if(nombre == "PELICULAS"){
+						ArrayList<Pelicula> pe = bd.SelectData.selectPelicula();
+						Pelicula peli = null;
+						for (Pelicula pp : pe){
+							if(pp.getNombreArticulo().equals(list.getSelectedValue())){
+								peli = pp;
+							}
 						}
+						ArticuloEspecifico ae = new ArticuloEspecifico(peli, u);
+						ae.setVisible(true);
+						dispose();
+						
 					}
-					ArticuloEspecifico ae = new ArticuloEspecifico(peli, u);
-					ae.setVisible(true);
-					dispose();
+					if(nombre == "SERIES"){
+						ArrayList<Serie> se = bd.SelectData.selectSerie();
+						Serie serie = null;
+						for ( Serie ss : se){
+							if(ss.getNombreArticulo().equals(list.getSelectedValue())){
+								serie=ss;
+							}
+						}
+						ArticuloEspecifico ae = new ArticuloEspecifico(serie, u);
+						ae.setVisible(true);
+						dispose();
+					}
+					if(nombre == "DOCUMENTALES"){
+						ArrayList<Documental> de = bd.SelectData.selectDocumental();
+						Documental documental = null;
+						for ( Documental dd : de){
+							if ( dd.getNombreArticulo().equals(list.getSelectedValue())){
+								documental = dd;
+							}
+						}
+						ArticuloEspecifico ae = new ArticuloEspecifico(documental, u);
+						ae.setVisible(true);
+						dispose();
+						
+					}
+					
 					
 				}
 			}
@@ -107,10 +158,10 @@ public class ListaPeliculas extends JFrame {
 		lblKapitalfilms.setBounds(95, 0, 535, 68);
 		contentPane.add(lblKapitalfilms);
 		
-		JLabel lblNewLabel = new JLabel("PEL\u00CDCULAS:");
+		JLabel lblNewLabel = new JLabel(nombre);
 		lblNewLabel.setFont(new Font("Mongolian Baiti", Font.PLAIN, 25));
 		lblNewLabel.setForeground(new Color(204, 204, 51));
-		lblNewLabel.setBounds(292, 97, 170, 41);
+		lblNewLabel.setBounds(261, 97, 263, 41);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
