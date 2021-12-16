@@ -192,7 +192,7 @@ public class Principal extends JFrame {
 		
 		btnNewButton_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VerMas vm= new VerMas();
+				VerMas vm= new VerMas(u);
 				vm.setVisible(true);
 				dispose();
 			}
