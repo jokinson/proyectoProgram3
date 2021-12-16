@@ -39,7 +39,7 @@ public class ListaPeliculas extends JFrame {
 	 */
 	public ListaPeliculas(Usuario u) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 762, 588);
+		setBounds(100, 100, 762, 624);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -131,6 +131,20 @@ public class ListaPeliculas extends JFrame {
 		lblNewLabel_1_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
 		lblNewLabel_1_1.setBounds(551, 290, 147, 20);
 		contentPane.add(lblNewLabel_1_1);
+		
+		JButton btnVolver = new JButton("VOLVER");
+		btnVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Principal p =new Principal(u);
+				p.setVisible(true);
+				dispose();
+			}
+		});
+		btnVolver.setBackground(new Color(0, 0, 0));
+		btnVolver.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		btnVolver.setForeground(new Color(204, 204, 51));
+		btnVolver.setBounds(292, 519, 142, 29);
+		contentPane.add(btnVolver);
 		
 		
 		
