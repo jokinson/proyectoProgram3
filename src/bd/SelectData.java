@@ -9,11 +9,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import objetos.Articulo;
 import objetos.Documental;
 import objetos.Pelicula;
 import objetos.Serie;
 import registro.Usuario;
+import ventanas.Factura;
 
 /**
  *
@@ -461,8 +464,10 @@ public class SelectData
     
     public static void insertPeliculaUsuario(Usuario u , Articulo a){
     	
+    	
     	int codUsuario = u.getCodUsuario();
     	int codigoArticulo = a.getCodigoArticulo();
+    	
     	
     	String sql1 = "INSERT INTO ArticulosUsuario(codUsuario, codigoArticulo ) VALUES(?,?)";
 
@@ -472,15 +477,14 @@ public class SelectData
                         PreparedStatement pstmt = conn.prepareStatement(sql1)
                 )
         {
+        	
+        	
             
             pstmt.setInt(1, codUsuario);
             pstmt.setInt(2, codigoArticulo);
-            
-      
+                
+          
             pstmt.executeUpdate();
-            
-           
-            
            
         }
         catch (SQLException e)

@@ -66,6 +66,26 @@ public class DeleteData
     }
     public static void deleteArticulo(String nombreArticulo, int codigoTipo)
     {
+    	String sql1 = "DELETE FROM Articulo WHERE nombreArticulo = ?";
+
+        try
+                (
+                        Connection conn = connect();
+                        PreparedStatement pstmt = conn.prepareStatement(sql1)
+                )
+        {
+
+            // set the corresponding param
+            pstmt.setString(1, nombreArticulo);
+
+            // execute the delete statement
+            pstmt.executeUpdate();
+
+        }
+        catch (SQLException e)
+        {
+            System.out.println(e.getMessage());
+        }
     	if(codigoTipo == 1){
     		String sql = "DELETE FROM Pelicula WHERE nombreArticulo = ?";
 

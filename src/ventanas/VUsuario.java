@@ -51,14 +51,14 @@ public class VUsuario extends JFrame {
 		
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("C:\\Users\\Alumno\\Downloads\\usuario1.png"));
-		label.setBounds(0, 405, 206, 137);
+		label.setBounds(0, 256, 206, 137);
 		contentPane.add(label);
 		
 		JList list = new JList();
 		list.setBounds(478, 78, 304, 315);
 		contentPane.add(list);
 		
-		JLabel lblPeliculasDeUsuario = new JLabel("Articulos de Usuario");
+		JLabel lblPeliculasDeUsuario = new JLabel("Articulos de "+u.getNombreCompleto());
 		lblPeliculasDeUsuario.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
 		lblPeliculasDeUsuario.setForeground(new Color(204, 204, 51));
 		lblPeliculasDeUsuario.setBounds(541, 42, 173, 20);
@@ -91,7 +91,7 @@ public class VUsuario extends JFrame {
 				
 			}
 		});
-		btnDevolverArticulo.setBounds(501, 416, 240, 29);
+		btnDevolverArticulo.setBounds(509, 416, 240, 29);
 		contentPane.add(btnDevolverArticulo);
 		
 		JButton btnAgregarSaldo = new JButton("Agregar Saldo");
@@ -122,7 +122,7 @@ public class VUsuario extends JFrame {
 				dispose();
 			}
 		});
-		btnVolver.setBounds(501, 461, 240, 29);
+		btnVolver.setBounds(509, 461, 240, 29);
 		contentPane.add(btnVolver);
 		
 		
