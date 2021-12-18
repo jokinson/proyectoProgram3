@@ -17,6 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
@@ -145,11 +147,15 @@ public class Login extends JFrame {
 		lblNewLabel.setBounds(261, 350, 147, 20);
 		contentPane.add(lblNewLabel);
 		
+		
+		
 		JLabel lblNewLabel_1 = new JLabel("@KapitalFilms_");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo twitter.png"));
 		lblNewLabel_1.setForeground(new Color(204, 204, 51));
 		lblNewLabel_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
 		lblNewLabel_1.setBounds(261, 386, 147, 20);
 		contentPane.add(lblNewLabel_1);
+		
 	}
+	
 }

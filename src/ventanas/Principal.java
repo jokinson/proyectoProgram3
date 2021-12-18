@@ -98,12 +98,12 @@ public class Principal extends JFrame {
 		JButton btnNewButton = new JButton(n);
 		btnNewButton.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 	
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton.addActionListener(e->{
+			
 				ListaPeliculas l = new ListaPeliculas(usuario, n);
 				l.setVisible(true);
 				dispose();
-			}
+			
 		});
 		btnNewButton.setForeground(new Color(204, 204, 51));
 		btnNewButton.setBackground(Color.BLACK);
@@ -111,6 +111,10 @@ public class Principal extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_3 = new JButton("ABOUT US");
+		btnNewButton_3.addActionListener(e->{
+			
+			
+		});
 		btnNewButton_3.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_3.setForeground(new Color(204, 204, 51));
 		btnNewButton_3.setBackground(new Color(0, 0, 0));
@@ -118,12 +122,12 @@ public class Principal extends JFrame {
 		contentPane.add(btnNewButton_3);
 		
 		JButton btnNewButton_1 = new JButton(n1);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_1.addActionListener(e->{
+			
 				ListaPeliculas l = new ListaPeliculas(usuario, n1);
 				l.setVisible(true);
 				dispose();
-			}
+			
 		});
 		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_1.setForeground(new Color(204, 204, 51));
@@ -132,12 +136,12 @@ public class Principal extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton(n2);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_2.addActionListener(e->{
+			
 				ListaPeliculas l = new ListaPeliculas(usuario, n2);
 				l.setVisible(true);
 				dispose();
-			}
+			
 		});
 		btnNewButton_2.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		btnNewButton_2.setForeground(new Color(204, 204, 51));
@@ -151,8 +155,8 @@ public class Principal extends JFrame {
 		contentPane.add(desktopPane);
 		
 		JButton btnNewButton_4 = new JButton("Titanic");
-		btnNewButton_4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_4.addActionListener(e->{
+			
 				
 				
 					for(Articulo a : articulos){
@@ -162,15 +166,15 @@ public class Principal extends JFrame {
 							dispose();
 						}
 					}
-			}
+			
 		});
 		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Titanic.jpg"));
 		btnNewButton_4.setBounds(0, 0, 169, 236);
 		desktopPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_4_1 = new JButton("Avatar");
-		btnNewButton_4_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_4_1.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 1){
@@ -180,15 +184,15 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_4_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Avatar.jpg"));
 		btnNewButton_4_1.setBounds(171, 0, 184, 236);
 		desktopPane.add(btnNewButton_4_1);
 		
 		JButton btnNewButton_4_1_1 = new JButton("");
-		btnNewButton_4_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_4_1_1.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 14){
@@ -198,7 +202,7 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_4_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Harry Potter.jpg"));
 		btnNewButton_4_1_1.setBounds(356, 0, 177, 236);
@@ -206,20 +210,20 @@ public class Principal extends JFrame {
 		
 		JButton btnNewButton_5 = new JButton("New button");
 		
-		btnNewButton_5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_5.addActionListener(e->{
+			
 				VerMas vm= new VerMas(u);
 				vm.setVisible(true);
 				dispose();
-			}
+			
 		});
 		btnNewButton_5.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Ver mas.png"));
 		btnNewButton_5.setBounds(533, 0, 189, 236);
 		desktopPane.add(btnNewButton_5);
 		
 		JButton button = new JButton("");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		button.addActionListener(e->{
+			
 				if(getU() == null){
 					//vamos al login
 					JOptionPane.showMessageDialog(Principal.this, "Debes iniciar sesión");
@@ -234,7 +238,7 @@ public class Principal extends JFrame {
 					usu.setVisible(true);
 					dispose();
 				}
-			}
+			
 		});
 		button.setBackground(new Color(255, 255, 255));
 		button.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\usuario1.png"));
@@ -265,8 +269,8 @@ public class Principal extends JFrame {
 		label.setForeground(new Color(204, 204, 51));
 		
 		JButton btnNewButton_4_2 = new JButton("");
-		btnNewButton_4_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_4_2.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 52){
@@ -276,15 +280,15 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_4_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Lupin.jpg"));
 		btnNewButton_4_2.setBounds(0, 0, 169, 227);
 		desktopPane_1.add(btnNewButton_4_2);
 		
 		JButton btnNewButton_4_1_2 = new JButton("");
-		btnNewButton_4_1_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_4_1_2.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 60){
@@ -294,15 +298,15 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_4_1_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\La casa de papel.jpg"));
 		btnNewButton_4_1_2.setBounds(171, 0, 184, 227);
 		desktopPane_1.add(btnNewButton_4_1_2);
 		
 		JButton btnNewButton_4_1_1_1 = new JButton("");
-		btnNewButton_4_1_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_4_1_1_1.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 61){
@@ -312,15 +316,15 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_4_1_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Venom.jpg"));
 		btnNewButton_4_1_1_1.setBounds(356, 0, 177, 227);
 		desktopPane_1.add(btnNewButton_4_1_1_1);
 		
 		JButton btnNewButton_5_1 = new JButton("");
-		btnNewButton_5_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_5_1.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 62){
@@ -330,15 +334,15 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_5_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Blacklist.jpg"));
 		btnNewButton_5_1.setBounds(533, 0, 189, 227);
 		desktopPane_1.add(btnNewButton_5_1);
 		
 		JButton btnNewButton_5_1_1 = new JButton("");
-		btnNewButton_5_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_5_1_1.addActionListener(e->{
+			
 				
 				for(Articulo a : articulos){
 					if(a.getCodigoArticulo() == 63){
@@ -348,7 +352,7 @@ public class Principal extends JFrame {
 					}
 				}
 				
-			}
+			
 		});
 		btnNewButton_5_1_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\The good doctor.jpg"));
 		btnNewButton_5_1_1.setBounds(723, 0, 169, 227);
@@ -396,14 +400,14 @@ public class Principal extends JFrame {
 		btnBuscadorDeArticulos.setBackground(new Color(0, 0, 0));
 		btnBuscadorDeArticulos.setForeground(new Color(204, 204, 51));
 		btnBuscadorDeArticulos.setFont(new Font("Mongolian Baiti", Font.PLAIN, 16));
-		btnBuscadorDeArticulos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnBuscadorDeArticulos.addActionListener(e->{
+			
 				
 				Buscador b = new Buscador(usuario, Principal.this);
 				b.setVisible(true);
 				
 				
-			}
+			
 		});
 		btnBuscadorDeArticulos.setBounds(590, 112, 254, 46);
 		contentPane.add(btnBuscadorDeArticulos);

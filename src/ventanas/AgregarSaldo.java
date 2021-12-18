@@ -56,8 +56,8 @@ public class AgregarSaldo extends JFrame {
 		btnAceptar.setBackground(new Color(0, 0, 0));
 		btnAceptar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 17));
 		btnAceptar.setForeground(new Color(204, 204, 51));
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnAceptar.addActionListener(e->{
+			
 				String n = textField.getText();
 				double nuevoSaldo = Double.parseDouble(n);
 				
@@ -83,7 +83,7 @@ public class AgregarSaldo extends JFrame {
 				}
 				
 				
-			}
+			
 		});
 		btnAceptar.setBounds(55, 180, 115, 29);
 		contentPane.add(btnAceptar);
@@ -92,13 +92,13 @@ public class AgregarSaldo extends JFrame {
 		btnVolver.setBackground(new Color(0, 0, 0));
 		btnVolver.setFont(new Font("Mongolian Baiti", Font.PLAIN, 17));
 		btnVolver.setForeground(new Color(204, 204, 51));
-		btnVolver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnVolver.addActionListener(e->{
+			
 				
 				
 				
 				dispose();
-			}
+			
 		});
 		btnVolver.setBounds(195, 180, 115, 29);
 		contentPane.add(btnVolver);

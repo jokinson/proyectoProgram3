@@ -48,8 +48,8 @@ public class ArticuloEspecifico extends JFrame {
 		JButton btnNewButton = new JButton("A\u00D1ADIR PELICULA");
 		btnNewButton.setBackground(new Color(0, 0, 0));
 		btnNewButton.setForeground(new Color(204, 204, 51));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton.addActionListener(e->{
+			
 				
 				if(u == null){
 					JOptionPane.showMessageDialog(ArticuloEspecifico.this, "Debes iniciar sesión");
@@ -61,7 +61,7 @@ public class ArticuloEspecifico extends JFrame {
 					f.setVisible(true);
 					
 				}
-			}
+			
 		});
 		btnNewButton.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
 		btnNewButton.setBounds(158, 513, 227, 29);
@@ -70,12 +70,12 @@ public class ArticuloEspecifico extends JFrame {
 		JButton btnNewButton_1 = new JButton("VOLVER");
 		btnNewButton_1.setBackground(new Color(0, 0, 0));
 		btnNewButton_1.setForeground(new Color(204, 204, 51));
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnNewButton_1.addActionListener(e->{
+			
 				Principal principal = new Principal(u);
 				principal.setVisible(true);
 				dispose();
-			}
+			
 		});
 		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(400, 513, 178, 29);

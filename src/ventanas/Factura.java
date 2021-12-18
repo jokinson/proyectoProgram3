@@ -76,7 +76,7 @@ public class Factura extends JFrame {
 		lblPrecio.setBounds(231, 125, 69, 20);
 		contentPane.add(lblPrecio);
 		
-		double nuevoSaldo = u.getSaldo()-a.getPrecioArticulo();
+		double nuevoSaldo = nuevoSaldo(u, a);
 		
 		JLabel lblNuevo = new JLabel(nuevoSaldo+"");
 		lblNuevo.setForeground(new Color(204, 204, 51));
@@ -88,8 +88,8 @@ public class Factura extends JFrame {
 		btnAceptar.setForeground(new Color(204, 204, 51));
 		btnAceptar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
 		btnAceptar.setBackground(new Color(0, 0, 0));
-		btnAceptar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnAceptar.addActionListener(e->{
+			
 				boolean ñ = false;
 				ArrayList<Articulo> articulos = bd.SelectData.selectArticulosUsuario(u);
 				for(Articulo ar : articulos){
@@ -129,7 +129,7 @@ public class Factura extends JFrame {
 				
 				
 				
-			}
+			
 		});
 		btnAceptar.setBounds(49, 261, 115, 29);
 		contentPane.add(btnAceptar);
@@ -138,12 +138,12 @@ public class Factura extends JFrame {
 		btnRechazar.setForeground(new Color(204, 204, 51));
 		btnRechazar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
 		btnRechazar.setBackground(new Color(0, 0, 0));
-		btnRechazar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		btnRechazar.addActionListener(e->{
+			
 				
 				dispose();
 				
-			}
+			
 		});
 		btnRechazar.setBounds(185, 261, 115, 29);
 		contentPane.add(btnRechazar);
@@ -154,5 +154,13 @@ public class Factura extends JFrame {
 		lblFactura.setFont(new Font("Mongolian Baiti", Font.PLAIN, 26));
 		lblFactura.setBounds(114, 16, 140, 20);
 		contentPane.add(lblFactura);
+	}
+	public static double nuevoSaldo(Usuario u, Articulo a){
+		
+		
+		
+		
+		return u.getSaldo()-a.getPrecioArticulo();
+		
 	}
 }
