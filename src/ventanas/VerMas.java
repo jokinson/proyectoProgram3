@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import logic.Sorting;
+
 import objetos.Articulo;
 import objetos.Documental;
 import objetos.Pelicula;
@@ -99,7 +101,7 @@ public class VerMas extends JFrame {
 		comboBox.setBackground(new Color(0, 0, 0));
 		comboBox.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
 		comboBox.setForeground(new Color(204, 204, 51));
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Tendencias", "Peliculas", "Series", "Documentales"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Tendencias", "Precio", "Peliculas", "Series", "Documentales"}));
 		comboBox.setBounds(522, 199, 213, 35);
 		contentPane.add(comboBox);
 		
@@ -167,6 +169,19 @@ public class VerMas extends JFrame {
 						model4.addElement(a);
 					}
 					list.setModel(model4);
+				}
+				if(comboBox.getSelectedItem() == "Precio"){
+					DefaultListModel<Articulo> model5 = new DefaultListModel<Articulo>();
+					ArrayList<Articulo> arts = bd.SelectData.selectArticulosDeArticulos();
+					for (Articulo a: arts){
+						System.out.println(a);
+					}
+					ArrayList<Articulo> articulos5 =new ArrayList<Articulo>();
+					articulos5= logic.Sorting.mergeSortNum(arts);
+					for(Articulo a:articulos5){
+						model5.addElement(a);
+					}
+					list.setModel(model5);
 				}
 			}
 		});

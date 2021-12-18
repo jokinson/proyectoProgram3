@@ -1,6 +1,8 @@
 package objetos;
 
-public class Pelicula extends Articulo{
+import logic.I_Comparable;
+
+public class Pelicula extends Articulo {
 	
 	
 

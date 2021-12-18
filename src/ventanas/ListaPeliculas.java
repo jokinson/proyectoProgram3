@@ -106,6 +106,7 @@ public class ListaPeliculas extends JFrame {
 					dispose();
 				}else{
 					if(nombre == "PELICULAS"){
+						
 						ArrayList<Pelicula> pe = bd.SelectData.selectPelicula();
 						Pelicula peli = null;
 						for (Pelicula pp : pe){
@@ -113,6 +114,7 @@ public class ListaPeliculas extends JFrame {
 								peli = pp;
 							}
 						}
+						
 						ArticuloEspecifico ae = new ArticuloEspecifico(peli, u);
 						ae.setVisible(true);
 						dispose();
@@ -196,6 +198,8 @@ public class ListaPeliculas extends JFrame {
 		btnVolver.setForeground(new Color(204, 204, 51));
 		btnVolver.setBounds(292, 519, 142, 29);
 		contentPane.add(btnVolver);
+		
+		
 		
 		
 		

@@ -1,11 +1,13 @@
 package objetos;
 
+import logic.I_Comparable;
+
 /**
  * 
  * @author Aritz Nieto version 1.2
  * @since 1.0
  */
-public class Articulo {
+public class Articulo implements I_Comparable<Articulo>{
 	/**
 	 * El codigo del articulo
 	 */
@@ -167,6 +169,22 @@ public class Articulo {
 			a = "Documental";
 		}
 		return a+", "+nombreArticulo+", "+ precioArticulo+", "+categoria+", "+ duracion;
+	}
+	
+
+	
+	@Override
+	public boolean compareNum(Articulo a) {
+		if(a.getPrecioArticulo()>this.precioArticulo){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	@Override
+	public boolean compareStr(Articulo a) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	
