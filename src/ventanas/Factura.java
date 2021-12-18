@@ -36,50 +36,58 @@ public class Factura extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 376, 380);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.WHITE);
+		contentPane.setBackground(new Color(0, 0, 0));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JLabel lblSaldoDisponible = new JLabel("Saldo Disponible:");
-		lblSaldoDisponible.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		lblSaldoDisponible.setForeground(new Color(204, 204, 51));
+		lblSaldoDisponible.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		lblSaldoDisponible.setBounds(49, 66, 140, 20);
 		contentPane.add(lblSaldoDisponible);
 		
 		JLabel lblPrecioDelArticulo = new JLabel("Precio del Articulo:");
-		lblPrecioDelArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		lblPrecioDelArticulo.setForeground(new Color(204, 204, 51));
+		lblPrecioDelArticulo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		lblPrecioDelArticulo.setBounds(49, 125, 154, 20);
 		contentPane.add(lblPrecioDelArticulo);
 		
 		JLabel label = new JLabel("-------------------------------------------------");
+		label.setForeground(new Color(204, 204, 51));
 		label.setBounds(49, 161, 472, 20);
 		contentPane.add(label);
 		
 		JLabel lblNuevoSaldo = new JLabel("Nuevo Saldo: ");
-		lblNuevoSaldo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
+		lblNuevoSaldo.setForeground(new Color(204, 204, 51));
+		lblNuevoSaldo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		lblNuevoSaldo.setBounds(49, 196, 135, 20);
 		contentPane.add(lblNuevoSaldo);
 		
 		JLabel lblSaldo = new JLabel(u.getSaldo()+"");
-		lblSaldo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 21));
+		lblSaldo.setForeground(new Color(204, 204, 51));
+		lblSaldo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		lblSaldo.setBounds(231, 66, 69, 20);
 		contentPane.add(lblSaldo);
 		
 		JLabel lblPrecio = new JLabel(a.getPrecioArticulo()+"");
-		lblPrecio.setFont(new Font("Mongolian Baiti", Font.PLAIN, 21));
+		lblPrecio.setForeground(new Color(204, 204, 51));
+		lblPrecio.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		lblPrecio.setBounds(231, 125, 69, 20);
 		contentPane.add(lblPrecio);
 		
 		double nuevoSaldo = u.getSaldo()-a.getPrecioArticulo();
 		
 		JLabel lblNuevo = new JLabel(nuevoSaldo+"");
-		lblNuevo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 21));
+		lblNuevo.setForeground(new Color(204, 204, 51));
+		lblNuevo.setFont(new Font("Mongolian Baiti", Font.PLAIN, 18));
 		lblNuevo.setBounds(231, 197, 69, 20);
 		contentPane.add(lblNuevo);
 		
 		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setForeground(new Color(204, 204, 51));
 		btnAceptar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
-		btnAceptar.setBackground(Color.LIGHT_GRAY);
+		btnAceptar.setBackground(new Color(0, 0, 0));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean ñ = false;
@@ -127,8 +135,9 @@ public class Factura extends JFrame {
 		contentPane.add(btnAceptar);
 		
 		JButton btnRechazar = new JButton("Rechazar");
+		btnRechazar.setForeground(new Color(204, 204, 51));
 		btnRechazar.setFont(new Font("Mongolian Baiti", Font.PLAIN, 19));
-		btnRechazar.setBackground(Color.LIGHT_GRAY);
+		btnRechazar.setBackground(new Color(0, 0, 0));
 		btnRechazar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
