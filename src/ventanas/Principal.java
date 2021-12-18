@@ -230,7 +230,7 @@ public class Principal extends JFrame {
 				}else{
 					//no hacemos nadda
 					
-					VUsuario usu = new VUsuario(usuario);
+					VUsuario usu = new VUsuario(usuario, null);
 					usu.setVisible(true);
 					dispose();
 				}

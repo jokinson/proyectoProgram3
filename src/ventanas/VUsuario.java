@@ -33,7 +33,7 @@ public class VUsuario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VUsuario(Usuario u) {
+	public VUsuario(Usuario u, Articulo art) {
 		setTitle("Usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 845, 577);
@@ -101,7 +101,7 @@ public class VUsuario extends JFrame {
 		btnAgregarSaldo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				AgregarSaldo ag = new AgregarSaldo(u, VUsuario.this);
+				AgregarSaldo ag = new AgregarSaldo(u, VUsuario.this, art);
 				ag.setVisible(true);
 				
 

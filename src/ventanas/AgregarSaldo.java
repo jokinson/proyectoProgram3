@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import objetos.Articulo;
 import registro.Usuario;
 
 import javax.swing.JLabel;
@@ -31,7 +32,7 @@ public class AgregarSaldo extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AgregarSaldo(Usuario u, VUsuario v) {
+	public AgregarSaldo(Usuario u, VUsuario v, Articulo a) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 447, 419);
 		contentPane = new JPanel();
@@ -57,7 +58,6 @@ public class AgregarSaldo extends JFrame {
 		btnAceptar.setForeground(new Color(204, 204, 51));
 		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				String n = textField.getText();
 				double nuevoSaldo = Double.parseDouble(n);
 				
@@ -66,9 +66,23 @@ public class AgregarSaldo extends JFrame {
 				Usuario usuarioNuevo = new Usuario(u.getCodUsuario(), u.getNombreCompleto(), u.getEdad(), u.getNombreUsuario(),u.getContrasena(),u.getSaldo(),u.getEsAdmin());
 				bd.SelectData.insertUsuarioNuevo(usuarioNuevo);
 				v.dispose();
-				VUsuario vu = new VUsuario(u);
-				vu.setVisible(true);
-				dispose();
+				
+				if(a== null){
+					
+					
+					VUsuario vu = new VUsuario(u, null);
+					vu.setVisible(true);
+					dispose();
+					
+				}else{
+					
+					ArticuloEspecifico ae = new ArticuloEspecifico(a, u);
+					ae.setVisible(true);
+					dispose();
+					
+				}
+				
+				
 			}
 		});
 		btnAceptar.setBounds(55, 180, 115, 29);

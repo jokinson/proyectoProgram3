@@ -115,7 +115,7 @@ public class Factura extends JFrame {
 						dispose();
 					}else{
 						JOptionPane.showMessageDialog(Factura.this, "No dispones de suficiente saldo");
-						VUsuario vu = new VUsuario(u);
+						VUsuario vu = new VUsuario(u, a);
 						vu.setVisible(true);
 						art.dispose();
 						dispose();
