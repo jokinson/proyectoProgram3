@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import registro.Usuario;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.SystemColor;
@@ -13,6 +16,9 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AboutUs extends JFrame {
 
@@ -21,7 +27,7 @@ public class AboutUs extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public AboutUs() {
+	public AboutUs(Usuario u) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 919, 778);
 		contentPane = new JPanel();
@@ -101,5 +107,17 @@ public class AboutUs extends JFrame {
 		lblNewLabel_3.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\contactanos.png"));
 		lblNewLabel_3.setBounds(670, 456, 199, 109);
 		contentPane.add(lblNewLabel_3);
+		
+		JButton btnNewButton_1 = new JButton("VOLVER");
+			btnNewButton_1.addActionListener(e->{
+				Principal principal = new Principal(u);
+				principal.setVisible(true);
+				dispose();
+		});
+		btnNewButton_1.setForeground(new Color(204, 204, 51));
+		btnNewButton_1.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
+		btnNewButton_1.setBackground(Color.BLACK);
+		btnNewButton_1.setBounds(691, 671, 178, 29);
+		contentPane.add(btnNewButton_1);
 	}
 }

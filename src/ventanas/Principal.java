@@ -112,7 +112,9 @@ public class Principal extends JFrame {
 		
 		JButton btnNewButton_3 = new JButton("ABOUT US");
 		btnNewButton_3.addActionListener(e->{
-			
+			AboutUs au=new AboutUs(u);
+			au.setVisible(true);
+			dispose();
 			
 		});
 		btnNewButton_3.setFont(new Font("Mongolian Baiti", Font.PLAIN, 20));
