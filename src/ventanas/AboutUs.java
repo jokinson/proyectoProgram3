@@ -56,6 +56,7 @@ public class AboutUs extends JFrame {
 		txtrSomosUnaPlataforma.setText("Somos una plataforma de entretenimiento visual que opera \r\nen Espa\u00F1a desde 2010 dirigida a aquellos amantes del cine, \r\nseries e incluso documentales de car\u00E1cter lectivo que buscan \r\nuna forma m\u00E1s moderna de disfrutar de dicho entretenimiento \r\nen cualquier lugar y en cualquier momento.");
 		txtrSomosUnaPlataforma.setBounds(91, 205, 445, 157);
 		contentPane.add(txtrSomosUnaPlataforma);
+		txtrSomosUnaPlataforma.setEditable(false);
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\logo.PNG"));
@@ -75,6 +76,7 @@ public class AboutUs extends JFrame {
 		txtrActualmenteKapitalfilmsEs.setBackground(Color.BLACK);
 		txtrActualmenteKapitalfilmsEs.setBounds(91, 433, 542, 180);
 		contentPane.add(txtrActualmenteKapitalfilmsEs);
+		txtrActualmenteKapitalfilmsEs.setEditable(false);
 		
 		JLabel lblNewLabel_1 = new JLabel("@KapitalFilms_");
 		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Alumno\\Desktop\\Proyecto program3\\proyectoProgram3\\src\\Images\\Logo Insta.jpg"));
